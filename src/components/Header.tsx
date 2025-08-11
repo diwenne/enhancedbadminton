@@ -1,9 +1,21 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import Logo from '/enhanced-label.png'; // Make sure this logo is in your /public folder
+import { useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import Logo from '/enhanced-label.png';
+import { FiMenu, FiX } from 'react-icons/fi'; // Hamburger and close icons
 
 function Header() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <header className="header">
@@ -11,7 +23,9 @@ function Header() {
         <NavLink to="/" className="logo">
           <img src={Logo} alt="Enhanced Badminton Logo" className="logo-image" />
         </NavLink>
-        <nav>
+
+        {/* Desktop Navigation */}
+        <nav className="desktop-nav">
           <ul className="nav-links">
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/about">About</NavLink></li>
@@ -36,7 +50,24 @@ function Header() {
             <li><NavLink to="/contact">Contact</NavLink></li>
           </ul>
         </nav>
+
+        {/* Mobile Menu Icon */}
+        <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
+          {isMobileMenuOpen ? <FiX /> : <FiMenu />}
+        </div>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="mobile-nav-links">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/training">Training</NavLink>
+          <NavLink to="/coaches">Coaches</NavLink>
+          <NavLink to="/rentals">Court Rentals</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+        </div>
+      )}
     </header>
   );
 }

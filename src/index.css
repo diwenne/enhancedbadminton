@@ -1,6 +1,5 @@
 /* --- Base Variables & Styles --- */
 :root {
-  /* New color palette based on the logo */
   --navy-700: #0D2B4F; /* Deep blue from logo */
   --sky-500: #0EA5E9;  /* A bright, modern sky blue for accents */
   --sky-100: #E0F2FE;  /* Light blue for backgrounds */
@@ -82,18 +81,17 @@ main {
   border-bottom: 1px solid #e2e8f0;
 }
 
-/* New container to balance the header layout */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1400px; /* Wider container for better spacing */
+  max-width: 1400px;
   margin: 0 auto;
   padding: 1.25rem 2rem;
 }
 
 .logo-image {
-  height: 45px; /* Slightly larger logo */
+  height: 45px;
   width: auto;
 }
 
@@ -178,7 +176,6 @@ main {
 .dropdown-menu li a::after {
   display: none;
 }
-
 
 /* --- Footer --- */
 .footer {
@@ -373,4 +370,77 @@ main {
 .info-card p {
   color: var(--slate-500);
   line-height: 1.7;
+}
+
+
+/*
+==============================================
+MOBILE RESPONSIVE STYLES
+==============================================
+*/
+.mobile-menu-icon {
+  display: none; /* Hidden by default on desktop */
+}
+
+.mobile-nav-links {
+  display: none; /* Hidden by default */
+}
+
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none; /* Hide desktop nav on mobile */
+  }
+
+  .mobile-menu-icon {
+    display: block; /* Show hamburger icon on mobile */
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other content */
+  }
+
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--white);
+    z-index: 1000;
+    animation: slideIn 0.3s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  .mobile-nav-links a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--slate-800);
+    text-decoration: none;
+  }
+  
+  /* Adjust general layout for mobile */
+  .container {
+    padding: 4rem 1rem;
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .header-container {
+    padding: 1rem;
+  }
 }
