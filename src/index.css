@@ -135,6 +135,8 @@ main {
 /* --- Dropdown Menu Styles --- */
 .nav-item-dropdown {
   position: relative;
+  padding: 1rem 0; /* Add padding to create a hoverable area */
+  margin: -1rem 0; /* Counteract the padding to maintain layout */
 }
 
 .dropdown-menu {
@@ -147,13 +149,23 @@ main {
   box-shadow: var(--shadow-lg);
   list-style: none;
   padding: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 0; /* Remove the margin that creates the gap */
   width: max-content;
   min-width: 200px;
   z-index: 11;
   border: 1px solid #e2e8f0;
   animation: fadeIn 0.2s ease-in-out;
+  pointer-events: none; /* Initially not clickable */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.2s ease-in-out, margin-top 0.2s ease-in-out;
 }
+
+/* Show the dropdown on hover of the parent */
+.nav-item-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
