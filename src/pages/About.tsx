@@ -7,10 +7,10 @@ function About() {
       </div>
       <div className="page-content">
         <p>
-          Founded in 2015, Enhanced Badminton Club was born from a passion for the sport and a desire to create a central hub for badminton in Vancouver. We envisioned a place where beginners could fall in love with the game and elite athletes could hone their skills to compete on the world stage.
+          Enhanced Badminton is a local badminton club based in the greater Vancouver area with an affiliation with Badminton BC. We offer lessons for grassroots players as well as professional players. Our coaches are all trained and certified in the Canadian coaching system and experienced in both competitive and tournament coaching.
         </p>
         <p>
-          Our mission is simple: to provide the best possible environment for badminton to thrive. This means investing in top-tier facilities, attracting world-class coaches, and fostering a community that is welcoming, supportive, and driven by a shared love for the sport. We believe in nurturing talent, promoting sportsmanship, and making badminton accessible to everyone.
+          Our vision is to <strong>Enhance Athletes on their Steps to Enjoyment (EASE)</strong> of badminton. We are proud to offer lessons across multiple locations, including Richmond, Surrey, and Coquitlam.
         </p>
       </div>
     </div>

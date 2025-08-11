@@ -13,7 +13,8 @@ function Contact() {
           <p>
             1751 Savage Rd, Unit 115, Richmond, BC V6V 3A9, Canada<br />
             <strong>Email:</strong> info@enhancedbadminton.ca<br />
-            <strong>Phone:</strong> (604) 555-1234
+            <strong>Phone:</strong> (604) 834-6433<br/>
+            <strong>WeChat ID:</strong> coachjkf
           </p>
         </div>
       </div>
