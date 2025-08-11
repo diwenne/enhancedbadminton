@@ -1,0 +1,373 @@
+/* --- Base Variables & Styles --- */
+:root {
+  /* New, lighter blue palette */
+  --blue-600: #2563EB; /* Main Blue - Lighter */
+  --blue-500: #3B82F6; /* Accent Blue */
+  --sky-100: #E0F2FE;  /* Light blue for backgrounds */
+  --teal-400: #2DD4BF; /* New accent color for variety */
+  
+  --slate-800: #1E293B; /* Dark text color */
+  --slate-500: #64748B; /* Lighter text for subtitles */
+  --white: #FFFFFF;
+
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --transition: all 0.3s ease-in-out;
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--white);
+  color: var(--slate-800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+/* --- Utility Classes --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--slate-800);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.cta-button {
+  background-color: var(--blue-600);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  display: inline-block;
+  border: none;
+  box-shadow: var(--shadow-md);
+}
+
+.cta-button:hover {
+  background-color: var(--blue-500);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* --- Header --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  /* The border-bottom has been removed for a cleaner look */
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--blue-600);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--slate-800);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links > li > a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--blue-500);
+  transition: var(--transition);
+}
+
+.nav-links > li > a:hover::after, .nav-links > li > a.active::after {
+  width: 100%;
+}
+
+.nav-links > li > a:hover, .nav-links > li > a.active {
+  color: var(--blue-600);
+}
+
+/* --- Dropdown Menu Styles --- */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  list-style: none;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  width: max-content;
+  min-width: 200px;
+  z-index: 11;
+  border: 1px solid #e2e8f0;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  background-color: var(--sky-100);
+  color: var(--blue-600);
+}
+
+.dropdown-menu li a::after {
+  display: none; /* Remove underline effect from dropdown items */
+}
+
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #F8FAFC; /* A slightly different off-white */
+  border-top: 1px solid #e2e8f0;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--slate-800);
+  margin-bottom: 1.5rem;
+}
+
+.footer-address {
+  color: var(--slate-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.footer-contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-contact-icons a {
+  color: var(--slate-500);
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.footer-contact-icons a:hover {
+  color: var(--blue-500);
+  transform: translateY(-3px);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-links a {
+  color: var(--slate-800);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: var(--blue-500);
+}
+
+.footer-copyright {
+  color: var(--slate-500);
+  font-size: 0.9rem;
+}
+
+/* --- Home Page --- */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 85vh;
+  background-color: var(--white);
+  padding: 2rem;
+}
+
+.hero-subtitle {
+  color: var(--blue-500);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  color: var(--slate-800);
+  margin: 1rem 0;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  max-width: 650px;
+  margin-bottom: 2.5rem;
+  color: var(--slate-500);
+}
+
+/* --- Generic Page Styles (About, Contact, etc.) --- */
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.page-content p {
+  margin-bottom: 1.5rem;
+}
+
+/* --- Coaches Page --- */
+.coaches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.coach-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  padding: 2.5rem;
+  border: 1px solid #e2e8f0;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+.coach-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.coach-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border: 4px solid var(--white);
+  box-shadow: 0 0 0 4px var(--blue-500);
+}
+
+.coach-card h3 {
+  font-family: var(--font-heading);
+  color: var(--slate-800);
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.coach-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--slate-500);
+}
+
+/* --- Training & Rentals Page --- */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.info-card {
+  background-color: var(--sky-100);
+  padding: 2.5rem;
+  border-radius: 12px;
+}
+
+.info-card h3 {
+  font-family: var(--font-heading);
+  color: var(--blue-600);
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.info-card p {
+  color: var(--slate-500);
+  line-height: 1.7;
+}
