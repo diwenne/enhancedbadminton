@@ -22,6 +22,7 @@ import bec from '../assets/certificates/bec.png';
 import chpc from '../assets/certificates/chpc.png';
 import ipc from '../assets/certificates/ipc.png';
 import pfa from '../assets/certificates/pfa.png';
+import bbc from '../assets/certificates/bbc.png';
 
 
 
@@ -33,21 +34,22 @@ import pfa from '../assets/certificates/pfa.png';
 // The 'file' property now directly uses the imported variable name from above.
 const coachesData = [
   {
-    name: 'Jack',
+    name: 'Jack, ChPC',
     image: Jack,
     description: 'Head Coach & Founder. A former professional with over 20 years of experience, Jack is dedicated to building a center of badminton excellence and fostering top-tier talent.',
     certifications: [
       { file: nccp, caption: 'NCCP Level 3 Certified' },
       { file: bwf, caption: 'Badminton World Federation Coach' },
-      { file: acd, caption: 'Badminton World Federation Coach' },
-      { file: ahrc, caption: 'Badminton World Federation Coach' },
-      { file: asc, caption: 'Badminton World Federation Coach' },
-      { file: au, caption: 'Badminton World Federation Coach' },
-      { file: ba, caption: 'Badminton World Federation Coach' },
-      { file: bec, caption: 'Badminton World Federation Coach' },
+      { file: acd, caption: 'Advanced Coaching Diploma' },
+      { file: ahrc, caption: 'Australian Human Rights Commission Recognized Child Protection Certificate' },
+      { file: asc, caption: 'Australian Sports Commission Community Coaching General Principals Certificate' },
+      { file: au, caption: 'Bachelor of Science at Andrews University' },
+      { file: ba, caption: 'Badminton Australia Registered Coach' },
+      { file: bc, caption: 'Badminton Canada Certified Coach' },
+      { file: bec, caption: 'Badminton Europe Confederation Certified Staff' },
       { file: chpc, caption: 'Badminton World Federation Coach' },
-      { file: ipc, caption: 'Badminton World Federation Coach' },
-      { file: pfa, caption: 'Badminton World Federation Coach' },
+      { file: ipc, caption: 'International Paralympic Committee Para Sport Coach' },
+      { file: pfa, caption: 'Physical Fitness Association of Hong Kong China Assessment Leader Certification' },
     ],
   },
   {
@@ -55,7 +57,9 @@ const coachesData = [
     image: Diwen,
     description: 'Performance Coach. Specializing in advanced tactical analysis and high-intensity conditioning, Diwen helps competitive players gain a critical edge over their opponents.',
     certifications: [
-      { file: nccp, caption: 'NCCP Level 2 Certified' },
+      { file: nccp, caption: 'NCCP Provincial Level 2 Coach' },
+      { file: bbc, caption: '2025 Provincial A Champion' },
+
     ],
   },
   {
@@ -63,7 +67,7 @@ const coachesData = [
     image: Austin,
     description: "Technical Coach. With a keen eye for detail, Austin focuses on refining players' form, footwork, and shot precision to build a strong, reliable foundation.",
     certifications: [
-      { file: nccp, caption: 'NCCP Level 1 Certified' }
+      { file: nccp, caption: 'NCCP Regional Level 1 Coach' }
     ],
   },
   {
@@ -71,15 +75,8 @@ const coachesData = [
     image: Callista,
     description: 'Development Coach. Callista excels at creating a positive and encouraging environment for intermediate players looking to transition to competitive play.',
     certifications: [
-      { file: nccp, caption: 'NCCP In Training' }
-    ],
-  },
-  {
-    name: 'Jessica',
-    image: Jessica,
-    description: 'Junior Coach. Jessica brings energy and fun to our youth programs, focusing on making the fundamentals of badminton engaging and accessible for young beginners.',
-    certifications: [
-      { file: nccp, caption: 'Junior Coach' }
+      { file: nccp, caption: '2024 National Middle School Athletic Games 4th Place' },
+      { file: bc, caption: '2025 YONEX BC Junior Elite Mixed Doubles 3rd Place' }
     ],
   },
   {
@@ -87,7 +84,7 @@ const coachesData = [
     image: Justin,
     description: 'Junior Coach. Justin connects wonderfully with our youngest athletes, using games and creative drills to instill a lifelong love for the sport of badminton.',
     certifications: [
-      { file: nccp, caption: 'Junior Coach' }
+      { file: nccp, caption: 'NCCP Provincial Level 2 Coach' }
     ],
   },
 ];
