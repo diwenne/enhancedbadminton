@@ -313,6 +313,13 @@ main {
 }
 
 /* --- Coaches Page --- */
+.page-subtitle {
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin: -2.5rem auto 0 auto;
+  color: var(--slate-500);
+}
+
 .coaches-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -328,6 +335,8 @@ main {
   border: 1px solid #e2e8f0;
   transition: var(--transition);
   box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
 }
 
 .coach-card:hover {
@@ -335,14 +344,15 @@ main {
   box-shadow: var(--shadow-lg);
 }
 
-.coach-card img {
+.coach-photo {
   width: 140px;
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem auto;
   border: 4px solid var(--white);
-  box-shadow: 0 0 0 4px var(--sky-500);
+  /* CHANGED: Removed the blue outline and replaced it with a subtle shadow for a cleaner look */
+  box-shadow: 0 4px 15px -2px rgb(0 0 0 / 0.1);
 }
 
 .coach-card h3 {
@@ -356,6 +366,81 @@ main {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--slate-500);
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.coach-certifications {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem; /* Adjusted gap for smaller logos */
+  flex-wrap: wrap;
+  min-height: 36px;
+}
+
+.cert-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-logo-img {
+  /* CHANGED: Made logos smaller to fit more on one line */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: #E2E8F0;
+  padding: 5px; /* Adjusted padding */
+  transition: var(--transition);
+}
+
+.cert-logo-img:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.cert-item::before,
+.cert-item::after {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.cert-item::before {
+  content: attr(data-caption);
+  bottom: 120%;
+  background-color: var(--slate-800);
+  color: var(--white);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
+}
+
+.cert-item::after {
+  content: '';
+  bottom: 120%;
+  margin-bottom: -5px;
+  border: 5px solid transparent;
+  border-top-color: var(--slate-800);
+}
+
+.cert-item:hover::before,
+.cert-item:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
 }
 
 /* --- Training & Rentals Page --- */
