@@ -1,5 +1,4 @@
 // src/pages/Coaches.tsx
-import React from 'react';
 
 // --- COACH IMAGES ---
 import Jack from '../assets/coaches/jack.png';
