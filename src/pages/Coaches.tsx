@@ -1,4 +1,5 @@
 // src/pages/Coaches.tsx
+import React from 'react';
 
 // --- COACH IMAGES ---
 import Jack from '../assets/coaches/jack.png';
@@ -23,17 +24,32 @@ import pfa from '../assets/certificates/pfa.png';
 import bbc from '../assets/certificates/bbc.png';
 import nmsag from '../assets/certificates/nmsag.png';
 
-// --- COACH DATA OBJECT ---
-// Data is now organized into sections for easier rendering.
-const coachSections = {
+// ---------- Types ----------
+type SectionKey = 'headCoach' | 'competitionCoaches' | 'skillsCoaches' | 'seniorCoaches';
+
+type Certification = { file: string; caption: string };
+
+type Coach = {
+  name: string;
+  icon: string | null;
+  flair?: string;
+  subtitle: string;
+  image: string;
+  description: string;
+  certifications: Certification[];
+};
+
+// ---------- Data ----------
+const coachSections: Record<SectionKey, Coach[]> = {
   headCoach: [
     {
       name: 'Jack, ChPC',
-      icon: null, // Optional icon next to name
-      flair: '🇨🇦🇭🇰🇨🇳🇯🇵', // Optional emoji/text field
+      icon: null,
+      flair: '🇨🇦🇭🇰🇨🇳🇯🇵',
       subtitle: 'Founder & Head Coach',
       image: Jack,
-      description: 'A former professional with over 20 years of experience, Jack is dedicated to building a center of badminton excellence and fostering top-tier talent.',
+      description:
+        'A former professional with over 20 years of experience, Jack is dedicated to building a center of badminton excellence and fostering top-tier talent.',
       certifications: [
         { file: chpc, caption: 'Chartered Professional Coach' },
         { file: acd, caption: 'Advanced Coaching Diploma' },
@@ -57,7 +73,8 @@ const coachSections = {
       flair: '🇨🇦🇨🇳',
       subtitle: 'Competition Coach',
       image: Diwen,
-      description: 'Specializing in advanced tactical analysis and high-intensity conditioning, Diwen helps competitive players gain a critical edge over their opponents.',
+      description:
+        'Specializing in advanced tactical analysis and high-intensity conditioning, Diwen helps competitive players gain a critical edge over their opponents.',
       certifications: [
         { file: nccp, caption: 'NCCP Provincial Level 2 Coach' },
         { file: bbc, caption: '2025 Provincial A Champion' },
@@ -69,10 +86,11 @@ const coachSections = {
       flair: '🇨🇦🇭🇰🇨🇳',
       subtitle: 'Competition Coach',
       image: Austin,
-      description: "With a keen eye for detail, Austin focuses on refining players' form, footwork, and shot precision to build a strong, reliable foundation.",
+      description:
+        "With a keen eye for detail, Austin focuses on refining players' form, footwork, and shot precision to build a strong, reliable foundation.",
       certifications: [
         { file: nccp, caption: 'NCCP Regional Level 1 Coach' },
-        { file: bbc, caption: '2024 Provincial B Champion' }
+        { file: bbc, caption: '2024 Provincial B Champion' },
       ],
     },
   ],
@@ -83,7 +101,8 @@ const coachSections = {
       flair: '🇨🇦🇹🇼',
       subtitle: 'Skills Coach',
       image: Justin,
-      description: 'Justin connects wonderfully with our youngest athletes, using games and creative drills to instill a lifelong love for the sport of badminton.',
+      description:
+        'Justin connects wonderfully with our youngest athletes, using games and creative drills to instill a lifelong love for the sport of badminton.',
       certifications: [{ file: nccp, caption: 'NCCP Provincial Level 2 Coach' }],
     },
     {
@@ -92,86 +111,74 @@ const coachSections = {
       flair: '🇨🇦🇹🇼',
       subtitle: 'Skills Coach',
       image: Callista,
-      description: 'Callista excels at creating a positive and encouraging environment for intermediate players looking to transition to competitive play.',
+      description:
+        'Callista excels at creating a positive and encouraging environment for intermediate players looking to transition to competitive play.',
       certifications: [
         { file: nmsag, caption: '2024 National Middle School Athletic Games 4th Place' },
         { file: bc, caption: '2025 YONEX BC Junior Elite Mixed Doubles 3rd Place' },
       ],
     },
   ],
-  // seniorCoaches: [
-  //   {
-  //     name: 'Coming Soon',
-  //     icon: null,
-  //     flair: '',
-  //     subtitle: 'Senior Coach',
-  //     image: Placeholder,
-  //     description: 'We are excited to be welcoming a new senior coach to our team. Full biography and details will be available shortly.',
-  //     certifications: [],
-  //   },
-  //   {
-  //     name: 'Coming Soon',
-  //     icon: null,
-  //     flair: '',
-  //     subtitle: 'Senior Coach',
-  //     image: Placeholder,
-  //     description: 'We are excited to be welcoming a new senior coach to our team. Full biography and details will be available shortly.',
-  //     certifications: [],
-  //   },
-  // ],
+  // Keep empty array if you want to render the title later, or remove this key entirely.
+  seniorCoaches: [],
 };
 
-// A mapping to create nice titles for each section
-const sectionTitles = {
+// Nice titles for each section
+const sectionTitles: Record<SectionKey, string> = {
   headCoach: 'Head Coach',
   competitionCoaches: 'Competition Coaches',
   skillsCoaches: 'Skills & Development Coaches',
   seniorCoaches: 'Senior Coaches',
 };
 
-
+// ---------- Component ----------
 function Coaches() {
   return (
     <div className="container">
       <div className="page-header">
         <h1 className="section-heading">Meet Our Coaching Team</h1>
-        <p className="page-subtitle">Dedicated professionals passionate about helping you achieve your badminton goals.</p>
+        <p className="page-subtitle">
+          Dedicated professionals passionate about helping you achieve your badminton goals.
+        </p>
       </div>
-      
-      {Object.entries(coachSections).map(([key, coaches]) => (
-        <section className="coach-section" key={key}>
-          <h2 className="coach-section-title">{sectionTitles[key]}</h2>
-          <div className="coaches-grid">
-            {coaches.map((coach) => (
-              <div className="coach-card" key={coach.name + coach.subtitle}>
-                <img src={coach.image} alt={`Coach ${coach.name}`} className="coach-photo" />
-                
-                <div className="coach-header">
-                  {coach.icon && <img src={coach.icon} alt="Coach icon" className="coach-icon" />}
-                  <h3 className="coach-name">{coach.name}</h3>
-                </div>
 
-                {coach.flair && <p className="coach-flair">{coach.flair}</p>}
-                
-                <p className="coach-subtitle-text">{coach.subtitle}</p>
-                <p className="coach-description">{coach.description}</p>
-                
-                <div className="coach-certifications">
-                  {coach.certifications.map((cert) => (
-                    <div className="cert-item" key={cert.file} data-caption={cert.caption}>
-                      <img
-                        src={cert.file}
-                        alt={`${cert.caption} certification logo`}
-                        className="cert-logo-img"
-                      />
-                    </div>
-                  ))}
+      {(Object.entries(coachSections) as [SectionKey, Coach[]][])
+        .filter(([, coaches]) => coaches.length > 0) // hide empty sections like seniorCoaches
+        .map(([key, coaches]) => (
+          <section className="coach-section" key={key}>
+            <h2 className="coach-section-title">{sectionTitles[key]}</h2>
+
+            <div className="coaches-grid">
+              {coaches.map((coach) => (
+                <div className="coach-card" key={coach.name + coach.subtitle}>
+                  <img src={coach.image} alt={`Coach ${coach.name}`} className="coach-photo" />
+
+                  <div className="coach-header">
+                    {coach.icon && <img src={coach.icon} alt="Coach icon" className="coach-icon" />}
+                    <h3 className="coach-name">{coach.name}</h3>
+                  </div>
+
+                  {coach.flair && <p className="coach-flair">{coach.flair}</p>}
+
+                  <p className="coach-subtitle-text">{coach.subtitle}</p>
+                  <p className="coach-description">{coach.description}</p>
+
+                  <div className="coach-certifications">
+                    {coach.certifications.map((cert) => (
+                      <div className="cert-item" key={cert.caption} data-caption={cert.caption}>
+                        <img
+                          src={cert.file}
+                          alt={`${cert.caption} certification logo`}
+                          className="cert-logo-img"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      ))}
+              ))}
+            </div>
+          </section>
+        ))}
     </div>
   );
 }
