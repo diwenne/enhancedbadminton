@@ -8,9 +8,8 @@ import CourtRentals from './pages/CourtRentals';
 import Contact from './pages/Contact';
 
 // Import the new training pages
-import GroupLessons from './pages/training/GroupLessons';
-import PrivateCoaching from './pages/training/PrivateCoaching';
-import Programs from './pages/training/Programs';
+import PrivateCoaching from './pages/training/PrivateCoaching.tsx';
+import Programs from './pages/training/Programs.tsx';
 import Training from './pages/Training.tsx';
 
 
@@ -30,9 +29,8 @@ function App() {
           <Route path="/training" element={<Training />} />
 
           {/* New Nested Training Routes */}
-          <Route path="/training/groups" element={<GroupLessons />} />
           <Route path="/training/privates" element={<PrivateCoaching />} />
-          <Route path="/training/programs" element={<Programs />} />
+          <Route path="/training/programs" element={< Programs/>} />
         </Routes>
       </main>
       <Footer />

@@ -320,6 +320,20 @@ main {
   color: var(--slate-500);
 }
 
+/* NEW: Styles for coach sections */
+.coach-section {
+  margin-bottom: 4rem;
+}
+
+.coach-section-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--navy-700);
+  border-bottom: 2px solid var(--sky-100);
+  padding-bottom: 1rem;
+  margin-bottom: 2.5rem;
+}
+
 .coaches-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -351,18 +365,51 @@ main {
   object-fit: cover;
   margin: 0 auto 1.5rem auto;
   border: 4px solid var(--white);
-  /* CHANGED: Removed the blue outline and replaced it with a subtle shadow for a cleaner look */
   box-shadow: 0 4px 15px -2px rgb(0 0 0 / 0.1);
 }
 
-.coach-card h3 {
+/* NEW: Container for icon and name */
+.coach-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+/* NEW: Style for optional icon */
+.coach-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.coach-name {
   font-family: var(--font-heading);
   color: var(--slate-800);
   font-size: 1.5rem;
-  margin: 0 0 0.5rem 0;
+  margin: 0;
 }
 
-.coach-card p {
+/* NEW: Style for flair/emoji text */
+.coach-flair {
+  font-size: 0.9rem;
+  color: var(--slate-500);
+  margin: 0.25rem 0;
+  min-height: 22px; /* Reserves space even if empty */
+}
+
+/* NEW: Style for subtitle */
+.coach-subtitle-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--sky-500);
+  margin: 0 0 1rem 0;
+}
+
+/* UPDATED: Renamed from .coach-card p to be more specific */
+.coach-description {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--slate-500);
@@ -377,7 +424,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.75rem; /* Adjusted gap for smaller logos */
+  gap: 0.75rem;
   flex-wrap: wrap;
   min-height: 36px;
 }
@@ -390,13 +437,12 @@ main {
 }
 
 .cert-logo-img {
-  /* CHANGED: Made logos smaller to fit more on one line */
   width: 36px;
   height: 36px;
   border-radius: 50%;
   object-fit: contain;
   background-color: #E2E8F0;
-  padding: 5px; /* Adjusted padding */
+  padding: 5px;
   transition: var(--transition);
 }
 
@@ -539,5 +585,10 @@ MOBILE RESPONSIVE STYLES
   
   .header-container {
     padding: 1rem;
+  }
+
+  .coach-section-title {
+    font-size: 1.75rem;
+    text-align: center;
   }
 }

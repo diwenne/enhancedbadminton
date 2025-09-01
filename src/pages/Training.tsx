@@ -1,25 +1,47 @@
-// src/pages/Training.tsx
-function Training() {
+import React from 'react';
+import juniorPDF from '../assets/junior.pdf';
+import adultPDF from '../assets/adult.pdf';
+
+const Training: React.FC = () => {
   return (
     <div className="container">
-      <div className="page-header">
-        <h1 className="section-heading">Training Programs</h1>
-      </div>
+      <h2 className="section-heading">Training Programs</h2>
       <div className="info-grid">
+        {/* Junior Program */}
         <div className="info-card">
-          <h3>Group Lessons</h3>
-          <p>Perfect for beginners and intermediate players looking to learn fundamentals and strategy in a fun, social setting. Classes are available for all age groups, from juniors to adults.</p>
+          <h3>Junior Program</h3>
+          <p>
+            Download the junior training program schedule below:
+          </p>
+          <a href={juniorPDF} target="_blank" rel="noopener noreferrer" className="cta-button">
+            View Junior Program
+          </a>
         </div>
+
+        {/* Adult Program */}
         <div className="info-card">
-          <h3>High-Performance Programs</h3>
-          <p>An intensive training regimen designed for competitive athletes aiming for provincial, national, and international success. Entry is by assessment only.</p>
+          <h3>Adult Program</h3>
+          <p>
+            Download the adult training program schedule below:
+          </p>
+          <a href={adultPDF} target="_blank" rel="noopener noreferrer" className="cta-button">
+            View Adult Program
+          </a>
         </div>
+
+        {/* Private Lessons */}
         <div className="info-card">
-          <h3>Private Coaching</h3>
-          <p>Receive one-on-one instruction tailored to your specific goals. Our coaches will analyze your technique, footwork, and strategy to help you reach your full potential.</p>
+          <h3>Private Lessons</h3>
+          <p>
+            Please contact us directly for pricing and availability.
+          </p>
+          <a href="/contact" className="cta-button">
+            Contact for Pricing
+          </a>
         </div>
       </div>
     </div>
   );
-}
+};
+
 export default Training;
