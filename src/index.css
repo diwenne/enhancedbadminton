@@ -408,6 +408,15 @@ main {
   margin: 0 0 1rem 0;
 }
 
+/* Extra subtitle lines (smaller + neutral) */
+.coach-subtitle-extra {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--slate-500); /* neutral grey instead of sky blue */
+  margin: 2px 0;           /* tighter spacing */
+  line-height: 1.4;
+}
+
 /* UPDATED: Renamed from .coach-card p to be more specific */
 .coach-description {
   font-size: 1rem;

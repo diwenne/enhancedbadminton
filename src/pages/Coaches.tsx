@@ -32,7 +32,8 @@ type Coach = {
   name: string;
   icon: string | null;
   flair?: string;
-  subtitle: string;
+  subtitle: string;          // main role line
+  subtitles?: string[];      // extra lines under the name (optional)
   image: string;
   description: string;
   certifications: Certification[];
@@ -46,22 +47,29 @@ const coachSections: Record<SectionKey, Coach[]> = {
       icon: null,
       flair: '🇨🇦🇭🇰🇨🇳🇯🇵',
       subtitle: 'Founder & Head Coach',
+      // ✅ New extra subtitles
+      subtitles: [
+        '🇨🇦 Trainer of Canadian Para National and Paralympic Athletes',
+        '🇮🇪 Former Trainer of Irish National Youth Athletes',
+      ],
       image: Jack,
       description:
         'A former professional with over 15 years of experience, Jack is dedicated to building a center of badminton excellence and fostering top-tier talent.',
       certifications: [
-        { file: chpc, caption: 'Chartered Professional Coach' },
-        { file: acd, caption: 'Advanced Coaching Diploma' },
-        { file: nccp, caption: 'NCCP Level 3 Certified' },
-        { file: bwf, caption: 'Badminton World Federation Coach' },
-        { file: ahrc, caption: 'Australian Human Rights Commission Recognized Child Protection Certificate' },
-        { file: asc, caption: 'Australian Sports Commission Community Coaching General Principals Certificate' },
-        { file: au, caption: 'Bachelor of Science at Andrews University' },
-        { file: ba, caption: 'Badminton Australia Registered Coach' },
-        { file: bc, caption: 'Badminton Canada Certified Coach' },
-        { file: bec, caption: 'Badminton Europe Confederation Certified Staff' },
-        { file: ipc, caption: 'International Paralympic Committee Para Sport Coach' },
-        { file: pfa, caption: 'Physical Fitness Association of Hong Kong China Assessment Leader Certification' },
+        { file: chpc, caption: 'Chartered Professional Coach (ChPC)' },
+        { file: acd, caption: 'Advanced Coaching Diploma (ACD)' },
+        { file: bwf, caption: 'Badminton World Federation Coach (BWF)' },
+        { file: ipc, caption: 'International Paralympic Committee Para Sport Coach (IPC)' },
+
+        { file: bec, caption: 'Badminton Europe Confederation Certified Staff (BEC)' },
+        { file: bc, caption: 'Badminton Canada Certified Coach (BCAN)' },
+        { file: nccp, caption: 'NCCP Level 3 Certified (NCCP)' },
+        { file: ba, caption: 'Badminton Australia Registered Coach (BAus)' },
+
+        { file: au, caption: 'Bachelor of Science at Andrews University (AU)' },
+        { file: asc, caption: 'Australian Sports Commission Community Coaching General Principals Certificate (ASC)' },
+        { file: ahrc, caption: 'Australian Human Rights Commission Recognized Child Protection Certificate (AHRC)' },
+        { file: pfa, caption: 'Physical Fitness Association of Hong Kong China Assessment Leader Certification (PFA)' },
       ],
     },
   ],
@@ -159,7 +167,16 @@ function Coaches() {
 
                   {coach.flair && <p className="coach-flair">{coach.flair}</p>}
 
+                  {/* Main subtitle */}
                   <p className="coach-subtitle-text">{coach.subtitle}</p>
+
+                  {/* Extra subtitles (if any) */}
+                  {coach.subtitles?.map((line, i) => (
+                    <p className="coach-subtitle-extra" key={coach.name + '-sub' + i}>
+                      {line}
+                    </p>
+                  ))}
+
                   <p className="coach-description">{coach.description}</p>
 
                   <div className="coach-certifications">
