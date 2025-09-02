@@ -42,13 +42,13 @@ type Coach = {
 const coachSections: Record<SectionKey, Coach[]> = {
   headCoach: [
     {
-      name: 'Jack, ChPC',
+      name: 'Jack Ho, ChPC',
       icon: null,
       flair: '🇨🇦🇭🇰🇨🇳🇯🇵',
       subtitle: 'Founder & Head Coach',
       image: Jack,
       description:
-        'A former professional with over 20 years of experience, Jack is dedicated to building a center of badminton excellence and fostering top-tier talent.',
+        'A former professional with over 15 years of experience, Jack is dedicated to building a center of badminton excellence and fostering top-tier talent.',
       certifications: [
         { file: chpc, caption: 'Chartered Professional Coach' },
         { file: acd, caption: 'Advanced Coaching Diploma' },
