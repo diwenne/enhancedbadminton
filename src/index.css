@@ -1,18 +1,17 @@
 /* ========================================================================== */
-/*  Enhanced Badminton — Global Styles (Refined)                              */
-/*  Organization:                                                             */
-/*    01) Variables & Resets                                                  */
-/*    02) Base Typography & Utilities                                         */
-/*    03) Header & Navigation (desktop + mobile)                              */
-/*    04) Sections: Hero, Generic Pages, Containers                           */
-/*    05) Cards & Grids (Programs, Info)                                      */
-/*    06) Coaches Page                                                        */
-/*    07) Contact Page                                                        */
-/*    08) Courts Hero (image + overlay)                                       */
-/*    09) Gallery (multi-photo rail)                                          */
-/*    10) Footer                                                              */
-/*    11) Accessibility & Motion                                              */
-/*    12) Responsive                                                          */
+/* Enhanced Badminton — Global Styles (Revamped)                             */
+/* Organization:                                                             */
+/* 01) Variables & Resets                                                  */
+/* 02) Base Typography & Utilities                                         */
+/* 03) Header & Navigation                                                 */
+/* 04) Hero Sections (Unified)                                             */
+/* 05) Cards & Grids (Programs, Info)                                      */
+/* 06) Coaches Page                                                        */
+/* 07) Contact Page                                                        */
+/* 08) Gallery (multi-photo rail)                                          */
+/* 09) Footer                                                              */
+/* 10) Accessibility & Motion                                              */
+/* 11) Responsive                                                          */
 /* ========================================================================== */
 
 
@@ -27,7 +26,7 @@
   --sky-100: #E0F2FE;  /* light blue bg */
 
   /* Neutral */
-  --slate-800: #1E293B; /* headings/body */
+  --slate-800: #1E2B3B; /* headings/body */
   --slate-500: #64748B; /* secondary text */
   --slate-100: #F1F5F9; /* footer bg */
   --white: #FFFFFF;
@@ -192,40 +191,56 @@ p { margin: 0 0 0.9rem 0; }
 
 
 /* ========================================================================== */
-/* 04) Sections: Hero, Generic Pages, Containers                              */
+/* 04) Hero Sections (Unified)                                                */
 /* ========================================================================== */
 
-/* Full-screen first section so Courts hero never peeks in */
 .hero-section {
-  display: grid; place-items: center;
+  position: relative;
+  display: grid;
+  place-items: center;
   text-align: center;
   padding: 2rem;
-  /* use modern viewport units and subtract sticky header height */
+  color: var(--white);
+  /* Full viewport height minus the sticky header */
   min-height: calc(100svh - var(--header-h));
   min-height: calc(100dvh - var(--header-h));
-  min-height: calc(100vh  - var(--header-h));
-  margin: 0;
-  background: var(--white);
+  min-height: calc(100vh - var(--header-h));
+  background-size: cover;
+  background-position: center;
+  background-color: var(--slate-800); /* Fallback */
 }
-.hero-subtitle {
-  color: var(--sky-500); font-size: 1.05rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: .08em;
+
+/* Subtle overlay for text readability */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13, 43, 79, 0.7), rgba(0, 0, 0, 0.6));
+  z-index: 1;
 }
+
+/* All content inside hero sits above overlay */
+.hero-section > * {
+  position: relative;
+  z-index: 2;
+}
+
 .hero-title {
   font-family: var(--font-heading);
   font-weight: 800;
   letter-spacing: -0.015em;
   line-height: 1.08;
   font-size: clamp(2.75rem, 3.5vw + 1rem, 4.75rem);
-  margin: .5rem 0 0 0;
+  margin: .5rem 0;
 }
-/* Ensure spacing after hero when scrolling */
-.hero-section + .container { padding-top: 3rem; }
 
-/* Generic pages */
-.page-header { text-align: center; margin-bottom: 4rem; }
-.page-subtitle { font-size: 1.075rem; max-width: 640px; margin: -1.25rem auto 0; color: var(--slate-500); }
-.page-content { max-width: 800px; margin: 0 auto; line-height: 1.75; font-size: 1.075rem; }
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  max-width: 600px;
+  line-height: 1.6;
+  margin: 0 auto;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
 
 
 /* ========================================================================== */
@@ -239,15 +254,18 @@ p { margin: 0 0 0.9rem 0; }
 }
 
 .info-card {
-  background: linear-gradient(180deg, var(--sky-100), #ffffff);
-  border: 1px solid #e6eef7;
+  background: var(--white);
+  border: 1px solid #e2e8f0;
   border-radius: var(--radius-md);
   padding: 2.25rem;
   display: flex; flex-direction: column;
-  box-shadow: 0 1px 0 #e6eef7 inset, var(--shadow-md);
+  box-shadow: var(--shadow-md);
   transition: var(--transition);
 }
-.info-card:hover { transform: translateY(-2px); }
+.info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
 
 .info-card h3 {
   font-family: var(--font-heading);
@@ -295,7 +313,10 @@ p { margin: 0 0 0.9rem 0; }
   transition: var(--transition);
   display: flex; flex-direction: column;
 }
-.coach-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.coach-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
 
 .coach-photo {
   width: 140px; height: 140px; margin: 0 auto 1.25rem auto;
@@ -388,42 +409,9 @@ p { margin: 0 0 0.9rem 0; }
 
 
 /* ========================================================================== */
-/* 08) Courts Hero (image + overlay)                                          */
+/* 08) Gallery (multi-photo rail)                                             */
 /* ========================================================================== */
 
-.courts-hero {
-  position: relative;
-  height: clamp(48vh, 60vh, 70vh);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  background: #d1d5db; /* grey placeholder */
-  box-shadow: var(--shadow-lg);
-  margin: 0 2rem 3rem 2rem; /* subtle edge-to-edge feel */
-}
-
-.courts-hero::before {
-  /* editorial veil using brand colors */
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg,
-    rgba(13, 43, 79, .62) 0%,
-    rgba(14, 165, 233, .28) 100%
-  );
-}
-
-.courts-overlay {
-  position: relative; /* above veil */
-  height: 100%;
-  display: grid; place-items: center;
-  text-align: center;
-  padding: 2rem;
-  color: var(--white);
-}
-.courts-heading { margin: 0 0 .8rem 0; color: var(--white); }
-.courts-text { max-width: 860px; font-size: clamp(1.05rem, .6vw + 1rem, 1.3rem); line-height: 1.6; }
-
-
-/* --- Gallery --- */
 .gallery-wrap {
   position: relative;
 }
@@ -433,19 +421,17 @@ p { margin: 0 0 0.9rem 0; }
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
-
-  /* small horizontal padding so arrows don't overlap content */
   padding: 0 32px;
-  gap: 8px; /* 👈 small gap between images */
+  gap: 8px; 
 }
 
 .gallery-item {
   flex: 0 0 auto;
-  height: 180px;             /* uniform height */
+  height: 540px;             /* Taller gallery items */
   scroll-snap-align: start;
   border-radius: 8px;
   overflow: hidden;
-  background: #f8fafc;       /* subtle bg so gap shows */
+  background: #f8fafc;
 }
 
 .gallery-img,
@@ -453,8 +439,8 @@ p { margin: 0 0 0.9rem 0; }
   height: 100%;
   width: auto;
   display: block;
-  object-fit: cover;          /* real images will scale nicely */
-  background: #d1d5db;        /* placeholder gray */
+  object-fit: cover;
+  background: #d1d5db;
   color: #64748b;
   font-weight: 600;
   display: grid;
@@ -482,13 +468,9 @@ p { margin: 0 0 0.9rem 0; }
 .gallery-arrow.right { right: 8px; }
 .gallery-arrow:hover { transform: translateY(-50%) scale(1.06); }
 
-@media (max-width: 768px) {
-  .gallery-item { height: 150px; }
-}
-
 
 /* ========================================================================== */
-/* 10) Footer                                                                 */
+/* 09) Footer                                                                 */
 /* ========================================================================== */
 
 .footer {
@@ -525,7 +507,7 @@ p { margin: 0 0 0.9rem 0; }
 
 
 /* ========================================================================== */
-/* 11) Accessibility & Motion                                                 */
+/* 10) Accessibility & Motion                                                 */
 /* ========================================================================== */
 
 :where(a, button, [role="button"], input, textarea, select):focus-visible {
@@ -540,7 +522,7 @@ p { margin: 0 0 0.9rem 0; }
 
 
 /* ========================================================================== */
-/* 12) Responsive                                                             */
+/* 11) Responsive                                                             */
 /* ========================================================================== */
 
 .mobile-menu-icon { display: none; }
@@ -549,7 +531,6 @@ p { margin: 0 0 0.9rem 0; }
 /* Desktop → Tablet */
 @media (max-width: 1024px) {
   .container { padding: 5rem 1.5rem; }
-  .courts-hero { margin: 0 1.5rem 2.5rem 1.5rem; }
 }
 
 /* Tablet → Mobile */
@@ -579,8 +560,7 @@ p { margin: 0 0 0.9rem 0; }
   .coach-section-title { font-size: 1.6rem; text-align: center; }
 
   .form-row { grid-template-columns: 1fr; }
-  .gallery-item { height: 150px; }
-  .courts-hero { height: 55vh; margin: 0 1rem 2rem 1rem; }
+  .gallery-item { height: 450px; } /* Taller gallery items on mobile */
 } 
 
 /* extras */
@@ -637,3 +617,4 @@ p { margin: 0 0 0.9rem 0; }
   color: var(--slate-500);
   font-size: .92rem;
 }
+
