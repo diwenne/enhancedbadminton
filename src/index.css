@@ -427,7 +427,7 @@ p { margin: 0 0 0.9rem 0; }
 
 .gallery-item {
   flex: 0 0 auto;
-  height: 540px;             /* Taller gallery items */
+  height: 350px;             /* Taller gallery items */
   scroll-snap-align: start;
   border-radius: 8px;
   overflow: hidden;
