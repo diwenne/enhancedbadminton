@@ -103,7 +103,7 @@ export default function Contact() {
             <h3>Enhanced Badminton — Contact & Info</h3>
             <p><strong>Email:</strong> info@enhancedbadminton.ca</p>
             <p><strong>Phone:</strong> (604) 834-6433</p>
-            <p><strong>Address:</strong> 1234 Kingsway Ave, Port Moody, BC</p>
+            <p><strong>Address:</strong> Unit 115, 1751 Savage Road, Richmond BC V6V 3A9</p>
             <p><strong>Hours:</strong><br/>Mon–Sun 10:00–22:00</p>
 
             <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", margin: "1.25rem 0" }} />
