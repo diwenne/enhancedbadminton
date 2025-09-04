@@ -667,3 +667,66 @@ p { margin: 0 0 0.9rem 0; }
     width: 30px;
     height: 30px;
   }
+
+  /* === Force checks, kill the old dot === */
+.info-card ul {
+  margin: .75rem 0 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.info-card li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--slate-500);
+}
+
+/* reset old circle marker completely */
+.info-card li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: .1em;
+
+  /* override previous circle props */
+  width: auto;
+  height: auto;
+  background: none !important;
+  border-radius: 0;
+  box-shadow: none;
+
+  /* checkmark look */
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--sky-500);
+  line-height: 1;
+}
+
+/* === Fix duplicate marker and spacing under lists === */
+
+/* Remove the old dot completely */
+.info-card li::before {
+  content: "✔";                /* only the checkmark */
+  position: absolute;
+  left: 0;
+  top: .15em;                  /* aligns with text */
+  width: auto; height: auto;
+  background: none !important; /* kills the old dot */
+  border-radius: 0;
+  box-shadow: none;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--sky-500);        /* brand accent */
+  line-height: 1;
+}
+
+/* Add breathing room below the list before the button */
+.info-card ul {
+  margin-bottom: 1.25rem;       /* pushes button down */
+} 
