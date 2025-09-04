@@ -119,7 +119,7 @@ const coachSections: Record<SectionKey, Coach[]> = {
       subtitle: 'Skills Coach (Doubles)',
       image: Calista,
       description:
-        'Callista excels at creating a positive and encouraging environment for intermediate players looking to transition to competitive play.',
+        'Calista excels at creating a positive and encouraging environment for intermediate players looking to transition to competitive play.',
       certifications: [
         { file: nmsag, caption: '2024 National Middle School Athletic Games 4th Place' },
         { file: bc, caption: '2025 YONEX BC Junior Elite Mixed Doubles 3rd Place' },
