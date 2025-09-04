@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import juniorPDF from '../assets/junior.pdf';
 import adultPDF from '../assets/adult.pdf';
@@ -14,19 +14,11 @@ import medals1 from '../assets/photos/medals1.png';
 import courts1 from '../assets/courts1.png';
 import courts2 from '../assets/courts2.png';
 
-// --- Photo Gallery Component ---
+// --- Photo Gallery Component (Infinite Loop) ---
 function PhotoGallery() {
   const scrollerRef = useRef<HTMLDivElement>(null);
 
-  // --- Scroll functionality ---
-  const scrollByAmount = (dir: "left" | "right") => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const delta = el.clientWidth * 0.8 * (dir === "left" ? -1 : 1);
-    el.scrollBy({ left: delta, behavior: "smooth" });
-  };
-
-  // ✅ Use the imported image variables in the array
+  // ✅ Use the imported image variables in the array (the "real" slides)
   const photos = [
     coaching1,
     coaching2,
@@ -35,6 +27,72 @@ function PhotoGallery() {
     doubles1,
     medals1,
   ];
+
+  // We create three copies: [A][A][A]
+  // and keep the scroll position inside the middle [A] so we can loop seamlessly.
+  const loopPhotos = [...photos, ...photos, ...photos];
+
+  // Scroll by viewport amount on arrow press
+  const scrollByAmount = useCallback((dir: "left" | "right") => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const delta = el.clientWidth * 0.8 * (dir === "left" ? -1 : 1);
+    el.scrollBy({ left: delta, behavior: "smooth" });
+  }, []);
+
+  // Initialize position to the start of the middle segment
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    const setToMiddle = () => {
+      // Each of the three segments is ~ a third of total scrollWidth
+      const segment = el.scrollWidth / 3;
+      // Put the user inside the middle segment
+      el.scrollLeft = segment + 1; // +1 avoids edge equality case
+    };
+
+    // After first layout
+    requestAnimationFrame(setToMiddle);
+
+    // Keep things stable when the layout changes (resize/images load)
+    const onResize = () => requestAnimationFrame(setToMiddle);
+    window.addEventListener("resize", onResize);
+
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  // Loop logic: if user scrolls beyond middle segment edges, jump by one segment
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    let ticking = false;
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const total = el.scrollWidth;
+        const segment = total / 3;
+        const left = el.scrollLeft;
+
+        // If we’re left of the middle segment → jump forward one segment
+        if (left < segment * 0.05) {
+          el.scrollLeft = left + segment;
+        }
+        // If we’re right of the middle segment → jump back one segment
+        else if (left > segment * 1.95) {
+          el.scrollLeft = left - segment;
+        }
+
+        ticking = false;
+      });
+    };
+
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <div className="gallery-wrap">
@@ -49,13 +107,12 @@ function PhotoGallery() {
 
       {/* --- Horizontally Scrolling Image Container --- */}
       <div className="gallery-scroller" ref={scrollerRef}>
-        {photos.map((photoSrc, i) => (
+        {loopPhotos.map((photoSrc, i) => (
           <div className="gallery-item" key={i}>
             <img
               src={photoSrc}
               alt={`Gallery view ${i + 1}`}
               className="gallery-img"
-              // Add a fallback for broken image links
               onError={(e) => {
                 (e.target as HTMLImageElement).src = `https://placehold.co/600x400/0A192F/FFF?text=Image+${i+1}`;
               }}
@@ -83,7 +140,6 @@ export default function Home() {
       {/* --- Main Hero Section --- */}
       <section
         className="hero-section"
-        // ✅ Use the imported variable for the background image
         style={{ backgroundImage: `url(${courts2})` }}
       >
         <div className="hero-content">
@@ -149,7 +205,6 @@ export default function Home() {
       <section
         id="courts"
         className="hero-section"
-        // ✅ Use the imported variable here as well
         style={{ backgroundImage: `url(${courts1})` }}
       >
         <div className="hero-content">
@@ -161,7 +216,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-
 
       {/* --- Photo Gallery Section --- */}
       <section id="photos" className="container">
