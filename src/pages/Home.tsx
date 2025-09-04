@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import juniorPDF from '../assets/junior.pdf';
+import adultPDF from '../assets/adult.pdf';
 import "../index.css";
 
 // --- Photo Gallery Component ---
@@ -93,7 +95,7 @@ export default function Home() {
             <p><strong>Advanced B:</strong> Tactical and technical trainings for Junior B level tournaments.</p>
             <p><strong>Enhanced A (Invitation Only):</strong> For Junior A level tournaments or above.</p>
             <a
-              href="../assets/junior.pdf"
+              href={juniorPDF}
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button"
@@ -108,7 +110,7 @@ export default function Home() {
             <p><strong>Skills:</strong> Morning skills sessions for adults to enjoy badminton and prevent injuries.</p>
             <p><strong>Doubles Specific:</strong> Morning sessions mainly focused on doubles tactical trainings and rotations.</p>
             <a
-              href="../assets/adult.pdf"
+              href={adultPDF}
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button"
