@@ -101,8 +101,8 @@ export default function Contact() {
           {/* RIGHT: Keep/merge your previous details here */}
           <aside className="info-card">
             <h3>Enhanced Badminton — Contact & Info</h3>
-            <p><strong>Email:</strong> contact@enhancedbadminton.ca</p>
-            <p><strong>Phone:</strong> (604) 555-0123</p>
+            <p><strong>Email:</strong> info@enhancedbadminton.ca</p>
+            <p><strong>Phone:</strong> (604) 834-6433</p>
             <p><strong>Address:</strong> 1234 Kingsway Ave, Port Moody, BC</p>
             <p><strong>Hours:</strong><br/>Mon–Sun 10:00–22:00</p>
 

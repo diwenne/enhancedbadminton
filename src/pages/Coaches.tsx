@@ -4,7 +4,7 @@
 import Jack from '../assets/coaches/jack.png';
 import Diwen from '../assets/coaches/diwen.png';
 import Austin from '../assets/coaches/austin.png';
-import Callista from '../assets/coaches/callista.png';
+import Calista from '../assets/coaches/calista.png';
 import Justin from '../assets/coaches/justin.png';
 
 // --- CERTIFICATION LOGOS ---
@@ -106,18 +106,18 @@ const coachSections: Record<SectionKey, Coach[]> = {
       name: 'Justin',
       icon: null,
       flair: '🇨🇦🇹🇼',
-      subtitle: 'Skills Coach',
+      subtitle: 'Skills Coach (Singles)',
       image: Justin,
       description:
         'Justin connects wonderfully with our youngest athletes, using games and creative drills to instill a lifelong love for the sport of badminton.',
       certifications: [{ file: nccp, caption: 'NCCP Provincial Level 2 Coach' }],
     },
     {
-      name: 'Callista',
+      name: 'Calista',
       icon: null,
       flair: '🇨🇦🇹🇼',
-      subtitle: 'Skills Coach',
-      image: Callista,
+      subtitle: 'Skills Coach (Doubles)',
+      image: Calista,
       description:
         'Callista excels at creating a positive and encouraging environment for intermediate players looking to transition to competitive play.',
       certifications: [
