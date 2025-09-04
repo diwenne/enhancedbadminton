@@ -54,7 +54,7 @@ function Header() {
                 </NavLink>
                 {isDropdownOpen && (
                   <ul className="dropdown-menu">
-                    <li><NavLink to="/training/programs">Training Programs</NavLink></li>
+                    <li><NavLink to="/training">Training Programs</NavLink></li>
                     <li><NavLink to="/training/privates">Private Coaching</NavLink></li>
                   </ul>
                 )}
