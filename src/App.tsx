@@ -6,6 +6,7 @@ import About from './pages/About';
 import Coaches from './pages/Coaches';
 import CourtRentals from './pages/CourtRentals';
 import Contact from './pages/Contact';
+import ScrollToTop from './components/ScrollToTop'; 
 
 // Import the new training pages
 import PrivateCoaching from './pages/training/PrivateCoaching.tsx';
@@ -16,6 +17,7 @@ import Training from './pages/Training.tsx';
 function App() {
   return (
     <div className="app-container">
+      <ScrollToTop />
       <Header />
       <main>
         <Routes>
