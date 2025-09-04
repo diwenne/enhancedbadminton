@@ -4,6 +4,16 @@ import juniorPDF from '../assets/junior.pdf';
 import adultPDF from '../assets/adult.pdf';
 import "../index.css";
 
+// ✅ IMPORT your images so the build tool can process them
+import coaching1 from '../assets/photos/coaching1.png';
+import coaching2 from '../assets/photos/coaching2.png';
+import coaching3 from '../assets/photos/coaching3.png';
+import diwen1 from '../assets/photos/diwen1.png';
+import doubles1 from '../assets/photos/doubles1.png';
+import medals1 from '../assets/photos/medals1.png';
+import courts1 from '../assets/courts1.png';
+import courts2 from '../assets/courts2.png';
+
 // --- Photo Gallery Component ---
 function PhotoGallery() {
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -12,20 +22,18 @@ function PhotoGallery() {
   const scrollByAmount = (dir: "left" | "right") => {
     const el = scrollerRef.current;
     if (!el) return;
-    // Scroll by 80% of the container width for a smooth page-like effect
     const delta = el.clientWidth * 0.8 * (dir === "left" ? -1 : 1);
     el.scrollBy({ left: delta, behavior: "smooth" });
   };
 
-  // --- Assumed list of photos from the specified directory ---
-  // Replace these with your actual file names.
+  // ✅ Use the imported image variables in the array
   const photos = [
-    "src/assets/photos/coaching1.png",
-    "src/assets/photos/coaching2.png",
-    "src/assets/photos/coaching3.png",
-    "src/assets/photos/diwen1.png",
-    "src/assets/photos/doubles1.png",
-    "src/assets/photos/medals1.png",
+    coaching1,
+    coaching2,
+    coaching3,
+    diwen1,
+    doubles1,
+    medals1,
   ];
 
   return (
@@ -75,7 +83,8 @@ export default function Home() {
       {/* --- Main Hero Section --- */}
       <section
         className="hero-section"
-        style={{ backgroundImage: `url('src/assets/courts2.png')` }}
+        // ✅ Use the imported variable for the background image
+        style={{ backgroundImage: `url(${courts2})` }}
       >
         <div className="hero-content">
           <h1 className="hero-title">Enhanced Badminton</h1>
@@ -140,7 +149,8 @@ export default function Home() {
       <section
         id="courts"
         className="hero-section"
-        style={{ backgroundImage: `url('src/assets/courts1.png')` }}
+        // ✅ Use the imported variable here as well
+        style={{ backgroundImage: `url(${courts1})` }}
       >
         <div className="hero-content">
           <h2 className="hero-title">Professional Courts</h2>
@@ -161,4 +171,3 @@ export default function Home() {
     </main>
   );
 }
-
