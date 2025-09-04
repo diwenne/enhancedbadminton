@@ -63,6 +63,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Prevents scrolling when the mobile menu is open */
+body.no-scroll {
+  overflow: hidden;
+}
+
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
@@ -422,7 +427,7 @@ p { margin: 0 0 0.9rem 0; }
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   padding: 0 32px;
-  gap: 8px; 
+  gap: 8px;
 }
 
 .gallery-item {
@@ -531,6 +536,7 @@ p { margin: 0 0 0.9rem 0; }
 /* Desktop → Tablet */
 @media (max-width: 1024px) {
   .container { padding: 5rem 1.5rem; }
+  .desktop-nav { display: none; }
 }
 
 /* Tablet → Mobile */
@@ -545,13 +551,33 @@ p { margin: 0 0 0.9rem 0; }
   .desktop-nav { display: none; }
 
   .mobile-menu-icon {
-    display: block; font-size: 1.8rem; cursor: pointer; z-index: 1001;
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative; /* This ensures z-index takes effect */
   }
 
   .mobile-nav-links {
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
-    position: fixed; inset: 0; background: var(--white); z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-in-out;
   }
+  
+  .mobile-nav-links.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .mobile-nav-links a { font-size: 1.5rem; font-weight: 600; }
 
   .container { padding: 4rem 1rem; }
@@ -560,7 +586,7 @@ p { margin: 0 0 0.9rem 0; }
   .coach-section-title { font-size: 1.6rem; text-align: center; }
 
   .form-row { grid-template-columns: 1fr; }
-  .gallery-item { height: 450px; } /* Taller gallery items on mobile */
+  .gallery-item { height: 450px; }
 } 
 
 /* extras */
@@ -571,13 +597,13 @@ p { margin: 0 0 0.9rem 0; }
 }
 
 .footer-content {
-  max-width: 900px;           /* keeps it nicely contained */
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;        /* 👈 ensures everything is centered */
+  align-items: center;
   text-align: center;
-  gap: 1.25rem;               /* space between groups */
+  gap: 1.25rem;
 }
 
 .footer-logo-image {
@@ -589,20 +615,20 @@ p { margin: 0 0 0.9rem 0; }
   color: var(--slate-500);
   display: flex;
   align-items: center;
-  justify-content: center;    /* centers inline icon + text */
+  justify-content: center;
   gap: .5rem;
 }
 
 .footer-contact-icons {
   display: flex;
-  justify-content: center;    /* 👈 keeps icons centered */
+  justify-content: center;
   gap: 2rem;
 }
 
 .footer-links {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;            /* wrap nicely on small screens */
+  flex-wrap: wrap;
   gap: 2rem;
 }
 
@@ -618,3 +644,26 @@ p { margin: 0 0 0.9rem 0; }
   font-size: .92rem;
 }
 
+
+/* --- STYLES FOR MOBILE CLOSE BUTTON --- */
+  .mobile-close-btn {
+    /* Positioning */
+    position: fixed;
+    top: 1rem;
+    right: 1.25rem;
+    z-index: 1002; /* Ensures it's on top of everything */
+
+    /* Styling */
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--slate-800); /* Sets the 'X' icon color */
+    line-height: 0; /* Removes extra vertical space */
+  }
+
+  /* Style for the icon itself */
+  .mobile-close-btn svg {
+    width: 30px;
+    height: 30px;
+  }
