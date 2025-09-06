@@ -28,21 +28,15 @@ export default function Contact() {
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // Honeypot trap
-    if (form._honey.trim() !== "") {
-      return; // silently drop bots
-    }
+    if (form._honey.trim() !== "") return; // spam bot trap
 
     if (!formRef.current) return;
     setStatus("sending");
 
     try {
-      // If your EmailJS template uses variables: user_name, user_email, subject, message
-      // make sure the input "name" attributes match them exactly (they do below).
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
       setStatus("sent");
       formRef.current.reset();
-      // reset local state too (optional)
       setForm({ user_name: "", user_email: "", subject: "", message: "", _honey: "" });
     } catch (err) {
       console.error("EmailJS error:", err);
@@ -60,14 +54,12 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Two-column grid: Form (left) • Info (right) */}
         <div className="contact-grid">
           {/* LEFT: Form */}
           <div className="info-card">
             <h3>Send us a Message</h3>
 
             <form ref={formRef} className="contact-form" onSubmit={onSubmit} noValidate>
-              {/* Honeypot to reduce bot spam */}
               <input
                 type="text"
                 name="_honey"
@@ -139,7 +131,6 @@ export default function Contact() {
                 {status === "error" && "Something went wrong — try again"}
               </button>
 
-              {/* Optional: mailto fallback if EmailJS fails for the user */}
               <div style={{ marginTop: "0.75rem", fontSize: "0.95rem", color: "var(--fg-muted)" }}>
                 Having trouble?{" "}
                 <a
@@ -159,6 +150,13 @@ export default function Contact() {
             <h3>Enhanced Badminton — Contact & Info</h3>
             <p><strong>Email:</strong> info@enhancedbadminton.ca</p>
             <p><strong>Phone:</strong> (604) 834-6433</p>
+            <p><strong>WeChat:</strong> coachjkf</p>
+            <p>
+              <strong>Instagram:</strong>{" "}
+              <a href="https://www.instagram.com/enhancedbadminton/" target="_blank" rel="noopener noreferrer">
+                @enhancedbadminton
+              </a>
+            </p>
             <p><strong>Address:</strong> Unit 115, 1751 Savage Road, Richmond BC V6V 3A9</p>
             <p><strong>Hours:</strong><br />Mon–Sun 10:00–22:00</p>
 

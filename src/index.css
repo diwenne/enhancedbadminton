@@ -730,3 +730,62 @@ p { margin: 0 0 0.9rem 0; }
 .info-card ul {
   margin-bottom: 1.25rem;       /* pushes button down */
 } 
+
+
+/* WeChat wrapper */
+.wechat-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Tooltip caption */
+.wechat-caption {
+  position: absolute;
+  bottom: 120%; /* above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1c1f26;
+  color: white;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  z-index: 10;
+}
+
+/* little arrow */
+.wechat-caption::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* bottom of tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #1c1f26 transparent transparent transparent;
+}
+
+/* Icon size fix */
+.wechat-icon {
+  font-size: 1.6rem;
+}
+
+/* ===================== NEW: WeChat icon parity with anchor icons ===================== */
+.footer-contact-icons .wechat-wrapper {
+  color: var(--slate-500);
+  display: inline-grid;
+  place-items: center;
+  transition: var(--transition);
+}
+
+.footer-contact-icons .wechat-wrapper:hover {
+  color: var(--sky-500);
+  transform: translateY(-3px);
+}
+
+/* ensure SVG inherits the color (so it’s gray → blue on hover) */
+.footer-contact-icons .wechat-icon {
+  color: inherit;
+}
