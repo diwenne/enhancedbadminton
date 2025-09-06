@@ -1,29 +1,54 @@
-import React, { useState } from "react";
+import { useRef, useState, type FormEvent, type ChangeEvent } from "react";
+import emailjs from "@emailjs/browser";
 import "../index.css";
 
-const EMAIL_TO = "contact@enhancedbadminton.ca"; // ← change to your address
+// ✅ Your EmailJS credentials
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID!;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID!;
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY!;
+
+// (Optional) mailto fallback target used by the fallback link
+const EMAIL_TO = "info@enhancedbadminton.ca";
 
 export default function Contact() {
-  // Keep all your existing intro/details ABOVE the grid if you already had them.
-  // (You can move them into the right column card below if you prefer.)
-
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [form, setForm] = useState({
-    name: "",
-    email: "",
+    user_name: "",
+    user_email: "",
     subject: "",
     message: "",
+    _honey: "", // honeypot: must stay empty
   });
 
-  const onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) =>
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  const onChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
-  const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const mailto = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(
-      form.subject
-    )}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)}`;
-    window.location.href = mailto;
-  };
+
+    // Honeypot trap
+    if (form._honey.trim() !== "") {
+      return; // silently drop bots
+    }
+
+    if (!formRef.current) return;
+    setStatus("sending");
+
+    try {
+      // If your EmailJS template uses variables: user_name, user_email, subject, message
+      // make sure the input "name" attributes match them exactly (they do below).
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
+      setStatus("sent");
+      formRef.current.reset();
+      // reset local state too (optional)
+      setForm({ user_name: "", user_email: "", subject: "", message: "", _honey: "" });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setStatus("error");
+    }
+  }
 
   return (
     <main>
@@ -40,28 +65,41 @@ export default function Contact() {
           {/* LEFT: Form */}
           <div className="info-card">
             <h3>Send us a Message</h3>
-            <form className="contact-form" onSubmit={onSubmit} noValidate>
+
+            <form ref={formRef} className="contact-form" onSubmit={onSubmit} noValidate>
+              {/* Honeypot to reduce bot spam */}
+              <input
+                type="text"
+                name="_honey"
+                value={form._honey}
+                onChange={onChange}
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
               <div className="form-row">
                 <div className="form-field">
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="user_name">Name</label>
                   <input
-                    id="name"
-                    name="name"
+                    id="user_name"
+                    name="user_name"
                     type="text"
                     placeholder="Your full name"
-                    value={form.name}
+                    value={form.user_name}
                     onChange={onChange}
                     required
                   />
                 </div>
+
                 <div className="form-field">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="user_email">Email</label>
                   <input
-                    id="email"
-                    name="email"
+                    id="user_email"
+                    name="user_email"
                     type="email"
                     placeholder="you@example.com"
-                    value={form.email}
+                    value={form.user_email}
                     onChange={onChange}
                     required
                   />
@@ -94,17 +132,35 @@ export default function Contact() {
                 />
               </div>
 
-              <button type="submit" className="cta-button">Send Email</button>
+              <button className="cta-button" type="submit" disabled={status === "sending"}>
+                {status === "idle" && "Send Message"}
+                {status === "sending" && "Sending…"}
+                {status === "sent" && "Thanks — we’ll reply shortly"}
+                {status === "error" && "Something went wrong — try again"}
+              </button>
+
+              {/* Optional: mailto fallback if EmailJS fails for the user */}
+              <div style={{ marginTop: "0.75rem", fontSize: "0.95rem", color: "var(--fg-muted)" }}>
+                Having trouble?{" "}
+                <a
+                  href={`mailto:${EMAIL_TO}?subject=${encodeURIComponent(form.subject || "Inquiry")}&body=${encodeURIComponent(
+                    `Name: ${form.user_name}\nEmail: ${form.user_email}\n\n${form.message || ""}`
+                  )}`}
+                >
+                  Email us directly
+                </a>
+                .
+              </div>
             </form>
           </div>
 
-          {/* RIGHT: Keep/merge your previous details here */}
+          {/* RIGHT: Info card */}
           <aside className="info-card">
             <h3>Enhanced Badminton — Contact & Info</h3>
             <p><strong>Email:</strong> info@enhancedbadminton.ca</p>
             <p><strong>Phone:</strong> (604) 834-6433</p>
             <p><strong>Address:</strong> Unit 115, 1751 Savage Road, Richmond BC V6V 3A9</p>
-            <p><strong>Hours:</strong><br/>Mon–Sun 10:00–22:00</p>
+            <p><strong>Hours:</strong><br />Mon–Sun 10:00–22:00</p>
 
             <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", margin: "1.25rem 0" }} />
 
@@ -117,6 +173,7 @@ export default function Contact() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              title="Enhanced Badminton Location"
             />
           </aside>
         </div>
