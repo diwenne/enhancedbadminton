@@ -58,6 +58,17 @@ function Footer() {
         <div className="footer-copyright">
           © {new Date().getFullYear()} Enhanced Badminton. All Rights Reserved.
         </div>
+
+        <div className="footer-credit">
+          design by{" "}
+          <a
+            href="https://diwen.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            diwen’s studio
+          </a>
+        </div>
       </div>
     </footer>
   );

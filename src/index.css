@@ -789,3 +789,16 @@ p { margin: 0 0 0.9rem 0; }
 .footer-contact-icons .wechat-icon {
   color: inherit;
 }
+
+
+.footer-credit {
+  font-size: 0.75rem;          /* smaller */
+  margin-top: 0.5rem;
+  color: var(--slate-500);     /* base grey */
+}
+
+.footer-credit a {
+  color: var(--slate-500);     /* same grey, blends in */
+  text-decoration: underline;  /* still signals link */
+  text-underline-offset: 2px;  /* subtle spacing */
+}
