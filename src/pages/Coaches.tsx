@@ -4,7 +4,6 @@
 import Jack from '../assets/coaches/jack.png';
 import Diwen from '../assets/coaches/diwen.png';
 import Austin from '../assets/coaches/austin.png';
-import Calista from '../assets/coaches/calista.png';
 import Justin from '../assets/coaches/justin.png';
 
 // --- CERTIFICATION LOGOS ---
@@ -21,7 +20,7 @@ import chpc from '../assets/certificates/chpc.png';
 import ipc from '../assets/certificates/ipc.png';
 import pfa from '../assets/certificates/pfa.png';
 import bbc from '../assets/certificates/bbc.png';
-import nmsag from '../assets/certificates/nmsag.png';
+
 
 // ---------- Types ----------
 type SectionKey = 'headCoach' | 'competitionCoaches' | 'skillsCoaches' | 'seniorCoaches';
@@ -111,19 +110,6 @@ const coachSections: Record<SectionKey, Coach[]> = {
       description:
         'Justin connects wonderfully with our youngest athletes, using games and creative drills to instill a lifelong love for the sport of badminton.',
       certifications: [{ file: nccp, caption: 'NCCP Provincial Level 2 Coach' }],
-    },
-    {
-      name: 'Calista',
-      icon: null,
-      flair: '🇨🇦🇹🇼',
-      subtitle: 'Skills Coach (Doubles)',
-      image: Calista,
-      description:
-        'Calista excels at creating a positive and encouraging environment for intermediate players looking to transition to competitive play.',
-      certifications: [
-        { file: nmsag, caption: '2024 National Middle School Athletic Games 4th Place' },
-        { file: bc, caption: '2025 YONEX BC Junior Elite Mixed Doubles 3rd Place' },
-      ],
     },
   ],
   // Keep empty array if you want to render the title later, or remove this key entirely.
