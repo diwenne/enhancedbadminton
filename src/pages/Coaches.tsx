@@ -5,6 +5,7 @@ import Jack from '../assets/coaches/jack.png';
 import Diwen from '../assets/coaches/diwen.png';
 import Austin from '../assets/coaches/austin.png';
 import Justin from '../assets/coaches/justin.png';
+import Wilfred from '../assets/coaches/wilfred.jpg';
 
 // --- CERTIFICATION LOGOS ---
 import nccp from '../assets/certificates/nccp.png';
@@ -20,6 +21,7 @@ import chpc from '../assets/certificates/chpc.png';
 import ipc from '../assets/certificates/ipc.png';
 import pfa from '../assets/certificates/pfa.png';
 import bbc from '../assets/certificates/bbc.png';
+import bcwg from '../assets/certificates/bcwg.png';
 
 
 // ---------- Types ----------
@@ -112,8 +114,21 @@ const coachSections: Record<SectionKey, Coach[]> = {
       certifications: [{ file: nccp, caption: 'NCCP Provincial Level 2 Coach' }],
     },
   ],
-  // Keep empty array if you want to render the title later, or remove this key entirely.
-  seniorCoaches: [],
+  seniorCoaches: [
+    {
+      name: 'Wilfred',
+      icon: null,
+      flair: '🇨🇦',
+      subtitle: 'Senior Coach',
+      image: Wilfred,
+      description:
+        'With extensive experience in competitive badminton, Wilfred brings a wealth of knowledge and expertise to help players of all levels improve their game.',
+      certifications: [
+        { file: nccp, caption: 'NCCP Level 2 Comp-Intro Provincial (Level 2) Coach' },
+        { file: bcwg, caption: 'Former BC Winter Games Zone Head Coach' },
+      ],
+    },
+  ],
 };
 
 // Nice titles for each section

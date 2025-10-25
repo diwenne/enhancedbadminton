@@ -56,7 +56,7 @@ function CourtRentals() {
         padding: "0 1rem"
       }}>
         <p style={{ fontSize: "1.1rem", lineHeight: 1.8, marginBottom: "2rem" }}>
-          Our 6 international-standard courts are available for booking. Whether you're looking for a casual game with friends or a space to practice, you can reserve a court.
+          Our 7 international-standard courts are available for booking. Whether you're looking for a casual game with friends or a space to practice, you can reserve a court.
         </p>
 
         <div style={{
@@ -99,7 +99,7 @@ function CourtRentals() {
             position: "relative",
             zIndex: 5
           }}>
-            📞 Call <a href="tel:+16043131810" style={{ color: "white", textDecoration: "underline" }}>(604) 313-1810</a> or email <a href="mailto:info@enhancedbadminton.ca" style={{ color: "white", textDecoration: "underline" }}>info@enhancedbadminton.ca</a> for bookings
+            📞 Call <a href="tel:+16048346433" style={{ color: "white", textDecoration: "underline" }}>(604) 834-6433</a> or email <a href="mailto:info@enhancedbadminton.ca" style={{ color: "white", textDecoration: "underline" }}>info@enhancedbadminton.ca</a> for bookings
           </p>
         </div>
       </div>

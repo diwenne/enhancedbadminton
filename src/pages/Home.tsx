@@ -11,6 +11,8 @@ import doubles1 from '../assets/photos/doubles1.png';
 import medals1 from '../assets/photos/medals1.png';
 import courts1 from '../assets/courts1.png';
 import courts2 from '../assets/courts2.png';
+import courts3 from '../assets/courts3.png';
+import courts4 from '../assets/courts4.png';
 
 /* --- Photo Gallery (Infinite Loop) --- */
 function PhotoGallery() {
@@ -98,7 +100,7 @@ export default function Home() {
   return (
     <main>
       {/* ========================= 1) HERO ========================= */}
-      <section className="hero-section" style={{ backgroundImage: `url(${courts2})` }}>
+      <section className="hero-section" style={{ backgroundImage: `url(${courts4})` }}>
         <div className="hero-content" style={{
           display: "grid",
           gap: "clamp(1.25rem, 4vw, 1.5rem)",
@@ -163,7 +165,7 @@ export default function Home() {
             marginTop: "1rem", justifyContent: "center", alignItems: "center"
           }}>
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "2rem", fontWeight: 800, marginBottom: ".25rem" }}>6</div>
+              <div style={{ fontSize: "2rem", fontWeight: 800, marginBottom: ".25rem" }}>7</div>
               <div style={{ fontSize: ".9rem", opacity: .9 }}>International Courts</div>
             </div>
             <div style={{ width: "1px", height: "40px", background: "rgba(255,255,255,.3)" }}></div>
@@ -364,120 +366,119 @@ export default function Home() {
         background: "linear-gradient(180deg, #f8fbff 0%, #ffffff 100%)"
       }}>
         <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1.2fr",
-            gap: "3rem",
-            alignItems: "center"
-          }}>
+          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
             <div style={{
-              borderRadius: "var(--radius-lg)",
-              overflow: "hidden",
-              boxShadow: "0 20px 60px -12px rgba(13, 43, 79, 0.25)"
+              display: "inline-block",
+              color: "var(--sky-500)",
+              fontWeight: 700,
+              fontSize: ".85rem",
+              letterSpacing: ".1em",
+              marginBottom: ".75rem"
             }}>
-              <img src={courts1} alt="Professional courts" style={{ width: "100%", display: "block" }} />
+              WORLD-CLASS FACILITIES
             </div>
-            <div>
+            <h2 style={{
+              fontFamily: "var(--font-heading)",
+              fontSize: "clamp(2rem, 3vw, 2.75rem)",
+              fontWeight: 800,
+              color: "var(--navy-700)",
+              margin: "0 0 1rem 0",
+              lineHeight: 1.2
+            }}>
+              Professional Courts Built for Performance
+            </h2>
+            <p style={{
+              fontSize: "1.1rem",
+              lineHeight: 1.8,
+              color: "var(--slate-500)",
+              marginBottom: "1.5rem",
+              maxWidth: "800px",
+              margin: "0 auto 2rem auto"
+            }}>
+              Train on 7 international-standard courts featuring premium 3-layer spring flooring designed to enhance performance and reduce injury risk.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gap: "1rem", maxWidth: "700px", margin: "0 auto 3rem auto" }}>
+            <div style={{
+              display: "flex",
+              gap: "1rem",
+              padding: "1rem",
+              background: "white",
+              borderRadius: "12px",
+              border: "1px solid #e2e8f0"
+            }}>
               <div style={{
-                display: "inline-block",
-                color: "var(--sky-500)",
-                fontWeight: 700,
-                fontSize: ".85rem",
-                letterSpacing: ".1em",
-                marginBottom: ".75rem"
-              }}>
-                WORLD-CLASS FACILITIES
-              </div>
-              <h2 style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "clamp(2rem, 3vw, 2.75rem)",
-                fontWeight: 800,
-                color: "var(--navy-700)",
-                margin: "0 0 1rem 0",
-                lineHeight: 1.2
-              }}>
-                Professional Courts Built for Performance
-              </h2>
-              <p style={{
-                fontSize: "1.1rem",
-                lineHeight: 1.8,
-                color: "var(--slate-500)",
-                marginBottom: "1.5rem"
-              }}>
-                Train on 6 international-standard courts featuring premium 3-layer spring flooring designed to enhance performance and reduce injury risk.
-              </p>
-              <div style={{ display: "grid", gap: "1rem" }}>
-                <div style={{
-                  display: "flex",
-                  gap: "1rem",
-                  padding: "1rem",
-                  background: "white",
-                  borderRadius: "12px",
-                  border: "1px solid #e2e8f0"
-                }}>
-                  <div style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "10px",
-                    background: "linear-gradient(135deg, var(--sky-500), #0284c7)",
-                    flexShrink: 0,
-                    display: "grid",
-                    placeItems: "center",
-                    fontSize: "1.25rem"
-                  }}>🏟️</div>
-                  <div>
-                    <div style={{ fontWeight: 700, color: "var(--navy-700)", marginBottom: ".25rem" }}>International Standards</div>
-                    <div style={{ color: "var(--slate-500)", fontSize: ".95rem" }}>Regulation-size courts meeting BWF specifications</div>
-                  </div>
-                </div>
-                <div style={{
-                  display: "flex",
-                  gap: "1rem",
-                  padding: "1rem",
-                  background: "white",
-                  borderRadius: "12px",
-                  border: "1px solid #e2e8f0"
-                }}>
-                  <div style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "10px",
-                    background: "linear-gradient(135deg, #10b981, #059669)",
-                    flexShrink: 0,
-                    display: "grid",
-                    placeItems: "center",
-                    fontSize: "1.25rem"
-                  }}>🛡️</div>
-                  <div>
-                    <div style={{ fontWeight: 700, color: "var(--navy-700)", marginBottom: ".25rem" }}>3-Layer Spring Flooring</div>
-                    <div style={{ color: "var(--slate-500)", fontSize: ".95rem" }}>Premium shock-absorbing surface for injury prevention</div>
-                  </div>
-                </div>
-                <div style={{
-                  display: "flex",
-                  gap: "1rem",
-                  padding: "1rem",
-                  background: "white",
-                  borderRadius: "12px",
-                  border: "1px solid #e2e8f0"
-                }}>
-                  <div style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "10px",
-                    background: "linear-gradient(135deg, #f59e0b, #d97706)",
-                    flexShrink: 0,
-                    display: "grid",
-                    placeItems: "center",
-                    fontSize: "1.25rem"
-                  }}>💡</div>
-                  <div>
-                    <div style={{ fontWeight: 700, color: "var(--navy-700)", marginBottom: ".25rem" }}>Optimal Lighting</div>
-                    <div style={{ color: "var(--slate-500)", fontSize: ".95rem" }}>Professional LED lighting for perfect visibility</div>
-                  </div>
-                </div>
+                width: "40px",
+                height: "40px",
+                borderRadius: "10px",
+                background: "linear-gradient(135deg, var(--sky-500), #0284c7)",
+                flexShrink: 0,
+                display: "grid",
+                placeItems: "center",
+                fontSize: "1.25rem"
+              }}>🏟️</div>
+              <div>
+                <div style={{ fontWeight: 700, color: "var(--navy-700)", marginBottom: ".25rem" }}>International Standards</div>
+                <div style={{ color: "var(--slate-500)", fontSize: ".95rem" }}>Regulation-size courts meeting BWF specifications</div>
               </div>
             </div>
+            <div style={{
+              display: "flex",
+              gap: "1rem",
+              padding: "1rem",
+              background: "white",
+              borderRadius: "12px",
+              border: "1px solid #e2e8f0"
+            }}>
+              <div style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "10px",
+                background: "linear-gradient(135deg, #10b981, #059669)",
+                flexShrink: 0,
+                display: "grid",
+                placeItems: "center",
+                fontSize: "1.25rem"
+              }}>🛡️</div>
+              <div>
+                <div style={{ fontWeight: 700, color: "var(--navy-700)", marginBottom: ".25rem" }}>3-Layer Spring Flooring</div>
+                <div style={{ color: "var(--slate-500)", fontSize: ".95rem" }}>Premium shock-absorbing surface for injury prevention</div>
+              </div>
+            </div>
+            <div style={{
+              display: "flex",
+              gap: "1rem",
+              padding: "1rem",
+              background: "white",
+              borderRadius: "12px",
+              border: "1px solid #e2e8f0"
+            }}>
+              <div style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "10px",
+                background: "linear-gradient(135deg, #f59e0b, #d97706)",
+                flexShrink: 0,
+                display: "grid",
+                placeItems: "center",
+                fontSize: "1.25rem"
+              }}>💡</div>
+              <div>
+                <div style={{ fontWeight: 700, color: "var(--navy-700)", marginBottom: ".25rem" }}>Optimal Lighting</div>
+                <div style={{ color: "var(--slate-500)", fontSize: ".95rem" }}>Professional LED lighting for perfect visibility</div>
+              </div>
+            </div>
+          </div>
+
+          <div style={{
+            borderRadius: "var(--radius-lg)",
+            overflow: "hidden",
+            boxShadow: "0 20px 60px -12px rgba(13, 43, 79, 0.25)",
+            maxWidth: "1000px",
+            margin: "0 auto"
+          }}>
+            <img src={courts3} alt="Professional courts" style={{ width: "100%", display: "block" }} />
           </div>
         </div>
       </section>
