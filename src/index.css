@@ -707,8 +707,11 @@ p { margin: 0 0 .9rem 0; }
 /* Additional mobile optimizations */
 @media (max-width: 768px) {
   .hero-section {
-    padding: 3rem 1.5rem;
-    min-height: auto;
+    padding: 2rem 1.5rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .gallery-item { height: 280px; }

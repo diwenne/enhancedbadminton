@@ -99,7 +99,15 @@ export default function Home() {
     <main>
       {/* ========================= 1) HERO ========================= */}
       <section className="hero-section" style={{ backgroundImage: `url(${courts2})` }}>
-        <div className="hero-content" style={{ display: "grid", gap: "1.5rem", placeItems: "center", maxWidth: "900px", margin: "0 auto" }}>
+        <div className="hero-content" style={{
+          display: "grid",
+          gap: "clamp(1.25rem, 4vw, 1.5rem)",
+          placeItems: "center",
+          maxWidth: "900px",
+          margin: "0 auto",
+          width: "100%",
+          padding: "0 1rem"
+        }}>
           <div style={{
             display: "inline-block",
             padding: ".5rem 1rem",
