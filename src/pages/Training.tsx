@@ -1,11 +1,54 @@
 import React from 'react';
-import juniorPDF from '../assets/junior.pdf';
-import adultPDF from '../assets/adult.pdf';
 
 const Training: React.FC = () => {
   return (
-    <div className="container">
-      <h2 className="section-heading">Training Programs</h2>
+    <main>
+      {/* Hero Section */}
+      <section className="hero-section page-banner" style={{
+        background: "linear-gradient(135deg, #1e3a5f 0%, #2a4d7c 100%)",
+        color: "white",
+        padding: "5rem 2rem 4rem 2rem",
+        textAlign: "center",
+        minHeight: "auto"
+      }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <div style={{
+            display: "inline-block",
+            padding: ".5rem 1rem",
+            background: "rgba(255, 255, 255, 0.15)",
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(255, 255, 255, 0.3)",
+            borderRadius: "999px",
+            fontSize: ".85rem",
+            fontWeight: 700,
+            letterSpacing: ".1em",
+            marginBottom: "1.5rem"
+          }}>
+            PROGRAMS
+          </div>
+          <h1 style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: "clamp(2.5rem, 4vw, 3.5rem)",
+            fontWeight: 900,
+            margin: "0 0 1.5rem 0",
+            lineHeight: 1.1
+          }}>
+            Training Programs
+          </h1>
+          <p style={{
+            fontSize: "1.2rem",
+            lineHeight: 1.7,
+            opacity: 0.95,
+            maxWidth: "700px",
+            margin: "0 auto"
+          }}>
+            Structured programs designed to develop your skills and elevate your game
+          </p>
+        </div>
+      </section>
+
+      <div className="container">
+      <h2 className="section-heading" style={{ display: "none" }}>Training Programs</h2>
       <div className="info-grid">
         {/* Junior Programs */}
         <div className="info-card">
@@ -15,7 +58,7 @@ const Training: React.FC = () => {
           <p><strong>Advanced B:</strong> Tactical and technical trainings for Junior B level tournaments.</p>
           <p><strong>Enhanced A (Invitation Only):</strong> For Junior A level tournaments or above.</p>
           <a
-            href={juniorPDF}
+            href="/programs/2025-1112-junior.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="cta-button"
@@ -30,7 +73,7 @@ const Training: React.FC = () => {
           <p><strong>Skills:</strong> Morning skills sessions for adults to enjoy badminton and prevent injuries.</p>
           <p><strong>Doubles Specific:</strong> Morning sessions mainly focused on doubles tactical trainings and rotations.</p>
           <a
-            href={adultPDF}
+            href="/programs/2025-1112-adult.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="cta-button"
@@ -57,7 +100,8 @@ const Training: React.FC = () => {
           </a>
         </div>
       </div>
-    </div>
+      </div>
+    </main>
   );
 };
 

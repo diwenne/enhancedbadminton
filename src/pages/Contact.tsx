@@ -46,18 +46,61 @@ export default function Contact() {
 
   return (
     <main>
-      <section className="container">
-        <div className="page-header">
-          <h1 className="section-heading">Contact Us</h1>
-          <p className="page-subtitle">
-            Questions about programs, private lessons, or court rentals? Send us a message — we’ll get back to you soon.
+      {/* Hero Section */}
+      <section className="hero-section page-banner" style={{
+        background: "linear-gradient(135deg, #1e3a5f 0%, #2a4d7c 100%)",
+        color: "white",
+        padding: "5rem 2rem 4rem 2rem",
+        textAlign: "center",
+        minHeight: "auto"
+      }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <div style={{
+            display: "inline-block",
+            padding: ".5rem 1rem",
+            background: "rgba(255, 255, 255, 0.15)",
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(255, 255, 255, 0.3)",
+            borderRadius: "999px",
+            fontSize: ".85rem",
+            fontWeight: 700,
+            letterSpacing: ".1em",
+            marginBottom: "1.5rem"
+          }}>
+            GET IN TOUCH
+          </div>
+          <h1 style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: "clamp(2.5rem, 4vw, 3.5rem)",
+            fontWeight: 900,
+            margin: "0 0 1.5rem 0",
+            lineHeight: 1.1
+          }}>
+            Contact Us
+          </h1>
+          <p style={{
+            fontSize: "1.2rem",
+            lineHeight: 1.7,
+            opacity: 0.95,
+            maxWidth: "700px",
+            margin: "0 auto"
+          }}>
+            Questions about programs, private lessons, or court rentals? Send us a message — we'll get back to you soon.
           </p>
         </div>
+      </section>
+
+      <section style={{ padding: "5rem 2rem", background: "#ffffff" }}>
+        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
 
         <div className="contact-grid">
           {/* LEFT: Form */}
-          <div className="info-card">
-            <h3>Send us a Message</h3>
+          <div className="info-card" style={{
+            background: "linear-gradient(135deg, #f8fbff 0%, #ffffff 100%)",
+            border: "2px solid #e2e8f0",
+            padding: "2.5rem"
+          }}>
+            <h3 style={{ fontSize: "1.75rem", marginBottom: "1.5rem" }}>Send us a Message</h3>
 
             <form ref={formRef} className="contact-form" onSubmit={onSubmit} noValidate>
               <input
@@ -146,8 +189,12 @@ export default function Contact() {
           </div>
 
           {/* RIGHT: Info card */}
-          <aside className="info-card">
-            <h3>Enhanced Badminton — Contact & Info</h3>
+          <aside className="info-card" style={{
+            background: "linear-gradient(135deg, #fefcfb 0%, #ffffff 100%)",
+            border: "2px solid #e2e8f0",
+            padding: "2.5rem"
+          }}>
+            <h3 style={{ fontSize: "1.75rem", marginBottom: "1.5rem" }}>Contact & Info</h3>
             <p><strong>Email:</strong> info@enhancedbadminton.ca</p>
             <p><strong>Phone:</strong> (604) 834-6433</p>
             <p><strong>WeChat:</strong> coachjkf</p>
@@ -174,6 +221,7 @@ export default function Contact() {
               title="Enhanced Badminton Location"
             />
           </aside>
+        </div>
         </div>
       </section>
     </main>

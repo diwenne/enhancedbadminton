@@ -127,8 +127,53 @@ const sectionTitles: Record<SectionKey, string> = {
 // ---------- Component ----------
 function Coaches() {
   return (
-    <div className="container">
-      <div className="page-header">
+    <main>
+      {/* Hero Section */}
+      <section className="hero-section page-banner" style={{
+        background: "linear-gradient(135deg, #1e3a5f 0%, #2a4d7c 100%)",
+        color: "white",
+        padding: "5rem 2rem 4rem 2rem",
+        textAlign: "center",
+        minHeight: "auto"
+      }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <div style={{
+            display: "inline-block",
+            padding: ".5rem 1rem",
+            background: "rgba(255, 255, 255, 0.15)",
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(255, 255, 255, 0.3)",
+            borderRadius: "999px",
+            fontSize: ".85rem",
+            fontWeight: 700,
+            letterSpacing: ".1em",
+            marginBottom: "1.5rem"
+          }}>
+            OUR TEAM
+          </div>
+          <h1 style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: "clamp(2.5rem, 4vw, 3.5rem)",
+            fontWeight: 900,
+            margin: "0 0 1.5rem 0",
+            lineHeight: 1.1
+          }}>
+            Meet Our Coaching Team
+          </h1>
+          <p style={{
+            fontSize: "1.2rem",
+            lineHeight: 1.7,
+            opacity: 0.95,
+            maxWidth: "700px",
+            margin: "0 auto"
+          }}>
+            Dedicated professionals passionate about helping you achieve your badminton goals
+          </p>
+        </div>
+      </section>
+
+      <div className="container">
+      <div className="page-header" style={{ display: "none" }}>
         <h1 className="section-heading">Meet Our Coaching Team</h1>
         <p className="page-subtitle">
           Dedicated professionals passionate about helping you achieve your badminton goals.
@@ -181,7 +226,8 @@ function Coaches() {
             </div>
           </section>
         ))}
-    </div>
+      </div>
+    </main>
   );
 }
 

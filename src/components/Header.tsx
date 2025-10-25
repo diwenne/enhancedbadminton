@@ -4,7 +4,6 @@ import Logo from '/enhanced-label.png';
 import { FiMenu, FiX } from 'react-icons/fi'; // Hamburger and close icons
 
 function Header() {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -44,21 +43,7 @@ function Header() {
             <ul className="nav-links">
               <li><NavLink to="/">Home</NavLink></li>
               <li><NavLink to="/about">About</NavLink></li>
-              <li 
-                className="nav-item-dropdown"
-                onMouseEnter={() => setDropdownOpen(true)}
-                onMouseLeave={() => setDropdownOpen(false)}
-              >
-                <NavLink to="/training" className={({ isActive }) => isActive ? "active" : ""}>
-                  Training
-                </NavLink>
-                {isDropdownOpen && (
-                  <ul className="dropdown-menu">
-                    <li><NavLink to="/training">Training Programs</NavLink></li>
-                    <li><NavLink to="/training/privates">Private Coaching</NavLink></li>
-                  </ul>
-                )}
-              </li>
+              <li><NavLink to="/training">Training</NavLink></li>
               <li><NavLink to="/coaches">Coaches</NavLink></li>
               <li><NavLink to="/rentals">Court Rentals</NavLink></li>
               <li><NavLink to="/contact">Contact</NavLink></li>

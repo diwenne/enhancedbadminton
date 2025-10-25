@@ -6,10 +6,7 @@ import About from './pages/About';
 import Coaches from './pages/Coaches';
 import CourtRentals from './pages/CourtRentals';
 import Contact from './pages/Contact';
-import ScrollToTop from './components/ScrollToTop'; 
-
-// Import the new training pages
-import PrivateCoaching from './pages/training/PrivateCoaching.tsx';
+import ScrollToTop from './components/ScrollToTop';
 import Training from './pages/Training.tsx';
 
 
@@ -26,11 +23,8 @@ function App() {
           <Route path="/rentals" element={<CourtRentals />} />
           <Route path="/contact" element={<Contact />} />
           
-          {/* Main Training Page Route */}
+          {/* Training Page Route */}
           <Route path="/training" element={<Training />} />
-
-          {/* New Nested Training Routes */}
-          <Route path="/training/privates" element={<PrivateCoaching />} />
           
         </Routes>
       </main>
