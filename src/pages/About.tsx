@@ -1,4 +1,6 @@
 // src/pages/About.tsx
+import PhotoGallery from '../components/PhotoGallery';
+
 function About() {
   return (
     <main>
@@ -93,11 +95,16 @@ function About() {
                 height: "60px",
                 margin: "0 auto 1.25rem auto",
                 borderRadius: "50%",
-                background: "linear-gradient(135deg, var(--sky-500), #0284c7)",
+                background: "var(--sky-500)",
                 display: "grid",
-                placeItems: "center",
-                fontSize: "1.75rem"
-              }}>🎯</div>
+                placeItems: "center"
+              }}>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              </div>
               <h3 style={{
                 fontFamily: "var(--font-heading)",
                 fontSize: "1.35rem",
@@ -125,11 +132,15 @@ function About() {
                 height: "60px",
                 margin: "0 auto 1.25rem auto",
                 borderRadius: "50%",
-                background: "linear-gradient(135deg, #10b981, #059669)",
+                background: "var(--sky-500)",
                 display: "grid",
-                placeItems: "center",
-                fontSize: "1.75rem"
-              }}>🤝</div>
+                placeItems: "center"
+              }}>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
               <h3 style={{
                 fontFamily: "var(--font-heading)",
                 fontSize: "1.35rem",
@@ -157,11 +168,15 @@ function About() {
                 height: "60px",
                 margin: "0 auto 1.25rem auto",
                 borderRadius: "50%",
-                background: "linear-gradient(135deg, #f59e0b, #d97706)",
+                background: "var(--sky-500)",
                 display: "grid",
-                placeItems: "center",
-                fontSize: "1.75rem"
-              }}>📈</div>
+                placeItems: "center"
+              }}>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                  <polyline points="17 6 23 6 23 12"/>
+                </svg>
+              </div>
               <h3 style={{
                 fontFamily: "var(--font-heading)",
                 fontSize: "1.35rem",
@@ -177,6 +192,34 @@ function About() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="photos" style={{ padding: "5rem 2rem", background: "#ffffff" }}>
+        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+            <div style={{
+              display: "inline-block",
+              color: "var(--sky-500)",
+              fontWeight: 700,
+              fontSize: ".85rem",
+              letterSpacing: ".1em",
+              marginBottom: ".75rem"
+            }}>
+              SEE US IN ACTION
+            </div>
+            <h2 className="section-heading" style={{ margin: "0 0 .5rem 0" }}>Gallery</h2>
+            <p style={{
+              fontSize: "1.1rem",
+              color: "var(--slate-500)",
+              maxWidth: "650px",
+              margin: "0 auto"
+            }}>
+              Explore our facilities, coaching sessions, and community in action
+            </p>
+          </div>
+          <PhotoGallery />
         </div>
       </section>
     </main>

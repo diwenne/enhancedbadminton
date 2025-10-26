@@ -1,6 +1,7 @@
 import { useRef, useState, type FormEvent, type ChangeEvent } from "react";
 import emailjs from "@emailjs/browser";
 import "../index.css";
+import PhotoGallery from '../components/PhotoGallery';
 
 // ✅ Your EmailJS credentials
 const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID!;
@@ -222,6 +223,34 @@ export default function Contact() {
             />
           </aside>
         </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="photos" style={{ padding: "5rem 2rem", background: "#ffffff" }}>
+        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+            <div style={{
+              display: "inline-block",
+              color: "var(--sky-500)",
+              fontWeight: 700,
+              fontSize: ".85rem",
+              letterSpacing: ".1em",
+              marginBottom: ".75rem"
+            }}>
+              SEE US IN ACTION
+            </div>
+            <h2 className="section-heading" style={{ margin: "0 0 .5rem 0" }}>Gallery</h2>
+            <p style={{
+              fontSize: "1.1rem",
+              color: "var(--slate-500)",
+              maxWidth: "650px",
+              margin: "0 auto"
+            }}>
+              Explore our facilities, coaching sessions, and community in action
+            </p>
+          </div>
+          <PhotoGallery />
         </div>
       </section>
     </main>

@@ -1,4 +1,5 @@
 // src/pages/Coaches.tsx
+import PhotoGallery from '../components/PhotoGallery';
 
 // --- COACH IMAGES ---
 import Jack from '../assets/coaches/jack.png';
@@ -203,7 +204,7 @@ function Coaches() {
 
             <div className="coaches-grid">
               {coaches.map((coach) => (
-                <div className="coach-card" key={coach.name + coach.subtitle}>
+                <div className={`coach-card ${key === 'headCoach' ? 'coach-card-wide' : ''}`} key={coach.name + coach.subtitle}>
                   <img src={coach.image} alt={`Coach ${coach.name}`} className="coach-photo" />
 
                   <div className="coach-header">
@@ -242,6 +243,34 @@ function Coaches() {
           </section>
         ))}
       </div>
+
+      {/* Gallery Section */}
+      <section id="photos" style={{ padding: "5rem 2rem", background: "#ffffff" }}>
+        <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+            <div style={{
+              display: "inline-block",
+              color: "var(--sky-500)",
+              fontWeight: 700,
+              fontSize: ".85rem",
+              letterSpacing: ".1em",
+              marginBottom: ".75rem"
+            }}>
+              SEE US IN ACTION
+            </div>
+            <h2 className="section-heading" style={{ margin: "0 0 .5rem 0" }}>Gallery</h2>
+            <p style={{
+              fontSize: "1.1rem",
+              color: "var(--slate-500)",
+              maxWidth: "650px",
+              margin: "0 auto"
+            }}>
+              Explore our facilities, coaching sessions, and community in action
+            </p>
+          </div>
+          <PhotoGallery />
+        </div>
+      </section>
     </main>
   );
 }
