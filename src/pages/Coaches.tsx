@@ -75,6 +75,21 @@ const coachSections: Record<SectionKey, Coach[]> = {
       ],
     },
   ],
+  seniorCoaches: [
+    {
+      name: 'Wilfred',
+      icon: null,
+      flair: '🇨🇦',
+      subtitle: 'Senior Coach',
+      image: Wilfred,
+      description:
+        'With extensive experience in competitive badminton, Wilfred brings a wealth of knowledge and expertise to help players of all levels improve their game.',
+      certifications: [
+        { file: nccp, caption: 'NCCP Level 2 Comp-Intro Provincial (Level 2) Coach' },
+        { file: bcwg, caption: 'Former BC Winter Games Zone Head Coach' },
+      ],
+    },
+  ],
   competitionCoaches: [
     {
       name: 'Diwen',
@@ -113,21 +128,6 @@ const coachSections: Record<SectionKey, Coach[]> = {
       description:
         'Justin connects wonderfully with our youngest athletes, using games and creative drills to instill a lifelong love for the sport of badminton.',
       certifications: [{ file: nccp, caption: 'NCCP Provincial Level 2 Coach' }],
-    },
-  ],
-  seniorCoaches: [
-    {
-      name: 'Wilfred',
-      icon: null,
-      flair: '🇨🇦',
-      subtitle: 'Senior Coach',
-      image: Wilfred,
-      description:
-        'With extensive experience in competitive badminton, Wilfred brings a wealth of knowledge and expertise to help players of all levels improve their game.',
-      certifications: [
-        { file: nccp, caption: 'NCCP Level 2 Comp-Intro Provincial (Level 2) Coach' },
-        { file: bcwg, caption: 'Former BC Winter Games Zone Head Coach' },
-      ],
     },
   ],
 };
@@ -202,7 +202,7 @@ function Coaches() {
           <section className="coach-section" key={key}>
             <h2 className="coach-section-title">{sectionTitles[key]}</h2>
 
-            <div className="coaches-grid">
+            <div className={`coaches-grid ${coaches.length === 1 && key !== 'headCoach' ? 'single-card-grid' : ''}`}>
               {coaches.map((coach) => (
                 <div className={`coach-card ${key === 'headCoach' ? 'coach-card-wide' : ''}`} key={coach.name + coach.subtitle}>
                   <img src={coach.image} alt={`Coach ${coach.name}`} className="coach-photo" />
