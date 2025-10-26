@@ -109,7 +109,7 @@ export default function Home() {
         background: "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
         padding: "4rem 2rem"
       }}>
-        <div style={{
+        <div className="intro-grid" style={{
           maxWidth: "var(--container-max)",
           margin: "0 auto",
           display: "grid",
@@ -226,7 +226,7 @@ export default function Home() {
           </div>
 
           <div style={{ display: "grid", gap: "1rem", margin: "0 auto", justifyItems: "center" }}>
-            <div style={{
+            <div className="facility-tag" style={{
               display: "flex",
               gap: "1rem",
               padding: "1rem 1.5rem",
@@ -261,7 +261,7 @@ export default function Home() {
                 <div style={{ color: "rgba(255,255,255,0.9)", fontSize: ".95rem" }}>Regulation-size courts meeting BWF specifications</div>
               </div>
             </div>
-            <div style={{
+            <div className="facility-tag" style={{
               display: "flex",
               gap: "1rem",
               padding: "1rem 1.5rem",
@@ -294,7 +294,7 @@ export default function Home() {
                 <div style={{ color: "rgba(255,255,255,0.9)", fontSize: ".95rem" }}>Premium shock-absorbing surface for injury prevention</div>
               </div>
             </div>
-            <div style={{
+            <div className="facility-tag" style={{
               display: "flex",
               gap: "1rem",
               padding: "1rem 1.5rem",
