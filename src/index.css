@@ -516,7 +516,7 @@ p { margin: 0 0 .9rem 0; }
     height: 64px;
     display: grid;
     place-items: center;
-    background: white;
+    background: transparent;
     border: none;
     border-radius: 0;
     color: var(--slate-800);
@@ -526,7 +526,8 @@ p { margin: 0 0 .9rem 0; }
     box-shadow: none;
   }
   .mobile-close-btn:hover {
-    background: var(--slate-100);
+    background: transparent;
+    opacity: 0.7;
   }
   .mobile-close-btn:active {
     transform: scale(0.95);

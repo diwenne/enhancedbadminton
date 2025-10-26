@@ -10,6 +10,8 @@ function ScrollToTop() {
   // The [pathname] dependency array means it will only run when the pathname changes.
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [pathname]);
 
   // This component does not render any visible UI, it just performs an action.
