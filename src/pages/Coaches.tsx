@@ -6,7 +6,7 @@ import Jack from '../assets/coaches/jack.png';
 import Diwen from '../assets/coaches/diwen.png';
 import Austin from '../assets/coaches/austin.png';
 import Justin from '../assets/coaches/justin.png';
-import Wilfred from '../assets/coaches/wilfred.JPG';
+import Wilfred from '../assets/coaches/wilfred.jpg';
 
 // --- CERTIFICATION LOGOS ---
 import nccp from '../assets/certificates/nccp.png';
