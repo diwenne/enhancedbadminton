@@ -8,6 +8,7 @@ import CourtRentals from './pages/CourtRentals';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
 import Training from './pages/Training.tsx';
+import PrivateCoaching from './pages/training/PrivateCoaching';
 
 
 function App() {
@@ -22,10 +23,11 @@ function App() {
           <Route path="/coaches" element={<Coaches />} />
           <Route path="/rentals" element={<CourtRentals />} />
           <Route path="/contact" element={<Contact />} />
-          
-          {/* Training Page Route */}
+
+          {/* Training Page Routes */}
           <Route path="/training" element={<Training />} />
-          
+          <Route path="/training/private" element={<PrivateCoaching />} />
+
         </Routes>
       </main>
       <Footer />
