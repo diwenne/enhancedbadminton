@@ -392,7 +392,7 @@ export default function Home() {
                 <p style={{ marginBottom: ".5rem" }}><strong style={{ color: "var(--navy-700)" }}>Advanced B:</strong> Tactical and technical trainings for Junior B level tournaments.</p>
                 <p style={{ marginBottom: ".5rem" }}><strong style={{ color: "var(--navy-700)" }}>Enhanced A (Invitation Only):</strong> For Junior A level tournaments or above.</p>
               </div>
-              <a href="/programs/2025-1112-junior.pdf" target="_blank" rel="noopener noreferrer" className="cta-button" style={{ marginTop: "auto" }}>
+              <a href="/programs/2026-0102-junior.pdf" target="_blank" rel="noopener noreferrer" className="cta-button" style={{ marginTop: "auto" }}>
                 View Junior Programs →
               </a>
             </div>
@@ -423,7 +423,7 @@ export default function Home() {
                 <p style={{ marginBottom: ".5rem" }}><strong style={{ color: "var(--navy-700)" }}>Skills:</strong> Morning skills sessions for adults to enjoy badminton and prevent injuries.</p>
                 <p style={{ marginBottom: ".5rem" }}><strong style={{ color: "var(--navy-700)" }}>Doubles Specific:</strong> Morning sessions mainly focused on doubles tactical trainings and rotations.</p>
               </div>
-              <a href="/programs/2025-1112-adult.pdf" target="_blank" rel="noopener noreferrer" className="cta-button" style={{ marginTop: "auto" }}>
+              <a href="/programs/2026-0102-adult.pdf" target="_blank" rel="noopener noreferrer" className="cta-button" style={{ marginTop: "auto" }}>
                 View Adult Programs →
               </a>
             </div>
