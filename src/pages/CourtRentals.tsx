@@ -74,14 +74,25 @@ function CourtRentals() {
             color: "var(--navy-700)",
             margin: "0 0 1rem 0"
           }}>Rental Rates</h3>
-          <p style={{
-            fontSize: "1.25rem",
+          <div style={{
+            fontSize: "1.15rem",
             fontWeight: 600,
             color: "var(--slate-700)",
+            display: "flex",
+            flexDirection: "column",
+            gap: ".75rem",
             margin: 0
           }}>
-            <strong>Everyday 10am - 10pm:</strong> $30/hour + tax
-          </p>
+            <p style={{ margin: 0 }}>
+              <strong>Monday – Friday (before 5 PM):</strong> $25/hour + tax
+            </p>
+            <p style={{ margin: 0 }}>
+              <strong>Monday – Friday (after 5 PM):</strong> $35/hour + tax
+            </p>
+            <p style={{ margin: 0 }}>
+              <strong>Saturday & Sunday (all day):</strong> $35/hour + tax
+            </p>
+          </div>
         </div>
 
         <div className="page-banner" style={{
