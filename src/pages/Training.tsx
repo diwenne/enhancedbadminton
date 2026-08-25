@@ -59,7 +59,7 @@ const Training: React.FC = () => {
           <p><strong>Advanced B:</strong> Tactical and technical trainings for Junior B level tournaments.</p>
           <p><strong>Enhanced A (Invitation Only):</strong> For Junior A level tournaments or above.</p>
           <a
-            href="/programs/2026-0708-junior.pdf"
+            href="/programs/2026-0910-junior.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="cta-button"
@@ -74,7 +74,7 @@ const Training: React.FC = () => {
           <p><strong>Skills:</strong> Morning skills sessions for adults to enjoy badminton and prevent injuries.</p>
           <p><strong>Doubles Specific:</strong> Morning sessions mainly focused on doubles tactical trainings and rotations.</p>
           <a
-            href="/programs/2026-0708-adult.pdf"
+            href="/programs/2026-0910-adult.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="cta-button"
