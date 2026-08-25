@@ -252,13 +252,28 @@ p { margin: 0 0 .9rem 0; }
 
 .hero-title {
   font-family: var(--font-heading);
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: .01em;
-  line-height: 0.6;
-  font-size: clamp(3rem, 4vw + 1rem, 6rem);
-  margin: .4rem 0 0 0;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  font-size: clamp(3rem, 7vw + 1rem, 7rem);
+  margin: 0;
+  color: var(--white);
+  text-shadow: 0 2px 30px rgba(0,0,0,.4), 0 1px 3px rgba(0,0,0,.35);
 }
+
+/* Eyebrow — plain uppercase kicker above a heading (replaces pill badges) */
+.eyebrow {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.72);
+  margin: 0 0 1.25rem 0;
+}
+.eyebrow--accent { color: var(--sky-500); }
 
 /* 3D Metallic text effect utility */
 .metallic-text {
@@ -329,6 +344,38 @@ p { margin: 0 0 .9rem 0; }
 .info-card:hover { transform: translateY(-4px); box-shadow: 0 10px 18px -6px rgba(13,43,79,.12), 0 6px 10px -6px rgba(13,43,79,.10); }
 
 .info-card h3 { font-family: var(--font-heading); font-size: 1.5rem; color: var(--navy-700); margin: 0 0 .75rem 0; }
+
+/* Small accent rule that leads a card, in place of an icon tile */
+.card-rule {
+  display: block;
+  width: 44px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--sky-500);
+  margin: 0 0 1.1rem 0;
+}
+
+/* Facility highlight cards (over the courts photo) */
+.facility-tag {
+  width: min(480px, 100%);
+  padding: 1.15rem 1.5rem;
+  background: rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+.facility-tag__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: .3rem;
+}
+.facility-tag__desc {
+  color: rgba(255,255,255,.85);
+  font-size: .95rem;
+  line-height: 1.5;
+}
 .info-card p { color: var(--slate-500); line-height: 1.7; margin-bottom: .35rem; }
 .info-card ul { margin: .25rem 0 .9rem 0; padding: 0; list-style: none; }
 .info-card li { position: relative; padding-left: 1.15rem; margin: .25rem 0; color: var(--slate-500); }

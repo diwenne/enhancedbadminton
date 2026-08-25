@@ -13,20 +13,7 @@ function CourtRentals() {
         minHeight: "auto"
       }}>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <div style={{
-            display: "inline-block",
-            padding: ".5rem 1rem",
-            background: "rgba(255, 255, 255, 0.15)",
-            backdropFilter: "blur(10px)",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-            borderRadius: "999px",
-            fontSize: ".85rem",
-            fontWeight: 700,
-            letterSpacing: ".1em",
-            marginBottom: "1.5rem"
-          }}>
-            FACILITIES
-          </div>
+          <span className="eyebrow">Facilities</span>
           <h1 style={{
             fontFamily: "var(--font-heading)",
             fontSize: "clamp(2.5rem, 4vw, 3.5rem)",
